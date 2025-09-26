@@ -1,0 +1,1353 @@
+{
+  "version": "2.0",
+  "created": 1758925980,
+  "trainer": "optimized_manual",
+  "total_photos": 31,
+  "total_rectangles": 72,
+  "session_stats": {
+    "photos_saved": 19,
+    "rectangles_drawn": 53
+  },
+  "data_quality": "perfect_manual",
+  "description": "High-quality manual training data for Slovak traffic signs",
+  "photos": [
+    {
+      "photo_id": "10",
+      "photo_path": "sample_photos\\holders-photos\\10.png",
+      "photo_name": "10.png",
+      "timestamp": 1758921308.557599,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 125,
+          "y1": 73,
+          "x2": 157,
+          "y2": 394,
+          "width": 32,
+          "height": 321,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921308.557599
+        },
+        {
+          "id": 2,
+          "x1": 92,
+          "y1": 75,
+          "x2": 187,
+          "y2": 155,
+          "width": 95,
+          "height": 80,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921308.557599
+        },
+        {
+          "id": 3,
+          "x1": 94,
+          "y1": 160,
+          "x2": 187,
+          "y2": 228,
+          "width": 93,
+          "height": 68,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921308.557599
+        }
+      ],
+      "total_rectangles": 3,
+      "holders_count": 1,
+      "signs_count": 2,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "100",
+      "photo_path": "sample_photos\\holders-photos\\100.png",
+      "photo_name": "100.png",
+      "timestamp": 1758921347.9293754,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 133,
+          "y1": 73,
+          "x2": 163,
+          "y2": 418,
+          "width": 30,
+          "height": 345,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921347.9293754
+        },
+        {
+          "id": 2,
+          "x1": 105,
+          "y1": 79,
+          "x2": 178,
+          "y2": 133,
+          "width": 73,
+          "height": 54,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921347.9293754
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1000",
+      "photo_path": "sample_photos\\holders-photos\\1000.png",
+      "photo_name": "1000.png",
+      "timestamp": 1758921387.392402,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 98,
+          "y1": 44,
+          "x2": 125,
+          "y2": 440,
+          "width": 27,
+          "height": 396,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921387.392402
+        },
+        {
+          "id": 2,
+          "x1": 76,
+          "y1": 40,
+          "x2": 145,
+          "y2": 114,
+          "width": 69,
+          "height": 74,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921387.392402
+        },
+        {
+          "id": 3,
+          "x1": 78,
+          "y1": 120,
+          "x2": 166,
+          "y2": 198,
+          "width": 88,
+          "height": 78,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921387.392402
+        },
+        {
+          "id": 4,
+          "x1": 77,
+          "y1": 187,
+          "x2": 157,
+          "y2": 219,
+          "width": 80,
+          "height": 32,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921387.392402
+        }
+      ],
+      "total_rectangles": 4,
+      "holders_count": 1,
+      "signs_count": 3,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1001",
+      "photo_path": "sample_photos\\holders-photos\\1001.png",
+      "photo_name": "1001.png",
+      "timestamp": 1758921426.1099477,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 115,
+          "y1": 67,
+          "x2": 158,
+          "y2": 424,
+          "width": 43,
+          "height": 357,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921426.1099477
+        },
+        {
+          "id": 2,
+          "x1": 101,
+          "y1": 70,
+          "x2": 182,
+          "y2": 181,
+          "width": 81,
+          "height": 111,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921426.1099477
+        },
+        {
+          "id": 3,
+          "x1": 98,
+          "y1": 182,
+          "x2": 178,
+          "y2": 257,
+          "width": 80,
+          "height": 75,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921426.1099477
+        }
+      ],
+      "total_rectangles": 3,
+      "holders_count": 1,
+      "signs_count": 2,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1002",
+      "photo_path": "sample_photos\\holders-photos\\1002.png",
+      "photo_name": "1002.png",
+      "timestamp": 1758921466.6199417,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 165,
+          "y1": 100,
+          "x2": 264,
+          "y2": 401,
+          "width": 99,
+          "height": 301,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921466.6199417
+        },
+        {
+          "id": 2,
+          "x1": 149,
+          "y1": 96,
+          "x2": 249,
+          "y2": 167,
+          "width": 100,
+          "height": 71,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921466.6199417
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1003",
+      "photo_path": "sample_photos\\holders-photos\\1003.png",
+      "photo_name": "1003.png",
+      "timestamp": 1758921495.40299,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 95,
+          "y1": 31,
+          "x2": 156,
+          "y2": 443,
+          "width": 61,
+          "height": 412,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921495.40299
+        },
+        {
+          "id": 2,
+          "x1": 64,
+          "y1": 26,
+          "x2": 201,
+          "y2": 154,
+          "width": 137,
+          "height": 128,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921495.40299
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1004",
+      "photo_path": "sample_photos\\holders-photos\\1004.png",
+      "photo_name": "1004.png",
+      "timestamp": 1758921564.3283443,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 83,
+          "y1": 55,
+          "x2": 183,
+          "y2": 143,
+          "width": 100,
+          "height": 88,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921564.3283443
+        },
+        {
+          "id": 2,
+          "x1": 91,
+          "y1": 143,
+          "x2": 170,
+          "y2": 197,
+          "width": 79,
+          "height": 54,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921564.3283443
+        },
+        {
+          "id": 3,
+          "x1": 101,
+          "y1": 54,
+          "x2": 160,
+          "y2": 433,
+          "width": 59,
+          "height": 379,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921564.3283443
+        }
+      ],
+      "total_rectangles": 3,
+      "holders_count": 1,
+      "signs_count": 2,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1005",
+      "photo_path": "sample_photos\\holders-photos\\1005.png",
+      "photo_name": "1005.png",
+      "timestamp": 1758921596.0454202,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 93,
+          "y1": 147,
+          "x2": 133,
+          "y2": 195,
+          "width": 40,
+          "height": 48,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921596.0454202
+        },
+        {
+          "id": 2,
+          "x1": 109,
+          "y1": 36,
+          "x2": 150,
+          "y2": 451,
+          "width": 41,
+          "height": 415,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921596.0454202
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1007",
+      "photo_path": "sample_photos\\holders-photos\\1007.png",
+      "photo_name": "1007.png",
+      "timestamp": 1758921626.208878,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 75,
+          "y1": 64,
+          "x2": 149,
+          "y2": 120,
+          "width": 74,
+          "height": 56,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921626.208878
+        },
+        {
+          "id": 2,
+          "x1": 86,
+          "y1": 55,
+          "x2": 140,
+          "y2": 437,
+          "width": 54,
+          "height": 382,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921626.208878
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1008",
+      "photo_path": "sample_photos\\holders-photos\\1008.png",
+      "photo_name": "1008.png",
+      "timestamp": 1758921654.0054164,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 89,
+          "y1": 65,
+          "x2": 164,
+          "y2": 117,
+          "width": 75,
+          "height": 52,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921654.0054164
+        },
+        {
+          "id": 2,
+          "x1": 85,
+          "y1": 115,
+          "x2": 165,
+          "y2": 160,
+          "width": 80,
+          "height": 45,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921654.0054164
+        },
+        {
+          "id": 3,
+          "x1": 106,
+          "y1": 71,
+          "x2": 147,
+          "y2": 431,
+          "width": 41,
+          "height": 360,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921654.0054164
+        }
+      ],
+      "total_rectangles": 3,
+      "holders_count": 1,
+      "signs_count": 2,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "101",
+      "photo_path": "sample_photos\\holders-photos\\101.png",
+      "photo_name": "101.png",
+      "timestamp": 1758921696.0483956,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 118,
+          "y1": 131,
+          "x2": 259,
+          "y2": 259,
+          "width": 141,
+          "height": 128,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921696.0483956
+        },
+        {
+          "id": 2,
+          "x1": 177,
+          "y1": 148,
+          "x2": 208,
+          "y2": 363,
+          "width": 31,
+          "height": 215,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921696.0483956
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1010",
+      "photo_path": "sample_photos\\holders-photos\\1010.png",
+      "photo_name": "1010.png",
+      "timestamp": 1758921725.4550805,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 101,
+          "y1": 54,
+          "x2": 196,
+          "y2": 161,
+          "width": 95,
+          "height": 107,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921725.4550805
+        },
+        {
+          "id": 2,
+          "x1": 129,
+          "y1": 85,
+          "x2": 173,
+          "y2": 451,
+          "width": 44,
+          "height": 366,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921725.4550805
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "102",
+      "photo_path": "sample_photos\\holders-photos\\102.png",
+      "photo_name": "102.png",
+      "timestamp": 1758925625.630823,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 76,
+          "y1": 61,
+          "x2": 122,
+          "y2": 415,
+          "width": 46,
+          "height": 354,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925625.630823
+        },
+        {
+          "id": 2,
+          "x1": 63,
+          "y1": 61,
+          "x2": 150,
+          "y2": 135,
+          "width": 87,
+          "height": 74,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925625.630823
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "102",
+      "photo_path": "sample_photos\\holders-photos\\102.png",
+      "photo_name": "102.png",
+      "timestamp": 1758925638.884117,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 76,
+          "y1": 61,
+          "x2": 122,
+          "y2": 415,
+          "width": 46,
+          "height": 354,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925638.884117
+        },
+        {
+          "id": 2,
+          "x1": 63,
+          "y1": 61,
+          "x2": 150,
+          "y2": 135,
+          "width": 87,
+          "height": 74,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925638.884117
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1020",
+      "photo_path": "sample_photos\\holders-photos\\1020.png",
+      "photo_name": "1020.png",
+      "timestamp": 1758925660.5938306,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 122,
+          "y1": 97,
+          "x2": 168,
+          "y2": 451,
+          "width": 46,
+          "height": 354,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925660.5938306
+        },
+        {
+          "id": 2,
+          "x1": 113,
+          "y1": 61,
+          "x2": 200,
+          "y2": 135,
+          "width": 87,
+          "height": 74,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925660.5938306
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1020",
+      "photo_path": "sample_photos\\holders-photos\\1020.png",
+      "photo_name": "1020.png",
+      "timestamp": 1758925670.1454144,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 122,
+          "y1": 97,
+          "x2": 168,
+          "y2": 451,
+          "width": 46,
+          "height": 354,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925670.1454144
+        },
+        {
+          "id": 2,
+          "x1": 113,
+          "y1": 61,
+          "x2": 200,
+          "y2": 135,
+          "width": 87,
+          "height": 74,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925670.1454144
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1021",
+      "photo_path": "sample_photos\\holders-photos\\1021.png",
+      "photo_name": "1021.png",
+      "timestamp": 1758925712.683424,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 98,
+          "y1": 51,
+          "x2": 185,
+          "y2": 125,
+          "width": 87,
+          "height": 74,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925712.683424
+        },
+        {
+          "id": 2,
+          "x1": 116,
+          "y1": 95,
+          "x2": 162,
+          "y2": 449,
+          "width": 46,
+          "height": 354,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925712.683424
+        },
+        {
+          "id": 3,
+          "x1": 99,
+          "y1": 131,
+          "x2": 186,
+          "y2": 205,
+          "width": 87,
+          "height": 74,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925712.683424
+        }
+      ],
+      "total_rectangles": 3,
+      "holders_count": 1,
+      "signs_count": 2,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1021",
+      "photo_path": "sample_photos\\holders-photos\\1021.png",
+      "photo_name": "1021.png",
+      "timestamp": 1758925728.0695968,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 98,
+          "y1": 51,
+          "x2": 185,
+          "y2": 125,
+          "width": 87,
+          "height": 74,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925728.0695968
+        },
+        {
+          "id": 2,
+          "x1": 116,
+          "y1": 95,
+          "x2": 162,
+          "y2": 449,
+          "width": 46,
+          "height": 354,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925728.0695968
+        },
+        {
+          "id": 3,
+          "x1": 99,
+          "y1": 131,
+          "x2": 186,
+          "y2": 205,
+          "width": 87,
+          "height": 74,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925728.0695968
+        }
+      ],
+      "total_rectangles": 3,
+      "holders_count": 1,
+      "signs_count": 2,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1022",
+      "photo_path": "sample_photos\\holders-photos\\1022.png",
+      "photo_name": "1022.png",
+      "timestamp": 1758925750.9562328,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 137,
+          "y1": 122,
+          "x2": 183,
+          "y2": 476,
+          "width": 46,
+          "height": 354,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925750.9562328
+        },
+        {
+          "id": 2,
+          "x1": 126,
+          "y1": 46,
+          "x2": 213,
+          "y2": 120,
+          "width": 87,
+          "height": 74,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925750.9562328
+        },
+        {
+          "id": 3,
+          "x1": 119,
+          "y1": 139,
+          "x2": 206,
+          "y2": 213,
+          "width": 87,
+          "height": 74,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925750.9562328
+        }
+      ],
+      "total_rectangles": 3,
+      "holders_count": 1,
+      "signs_count": 2,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1022",
+      "photo_path": "sample_photos\\holders-photos\\1022.png",
+      "photo_name": "1022.png",
+      "timestamp": 1758925761.035154,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 137,
+          "y1": 122,
+          "x2": 183,
+          "y2": 476,
+          "width": 46,
+          "height": 354,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925761.035154
+        },
+        {
+          "id": 2,
+          "x1": 126,
+          "y1": 46,
+          "x2": 213,
+          "y2": 120,
+          "width": 87,
+          "height": 74,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925761.035154
+        },
+        {
+          "id": 3,
+          "x1": 119,
+          "y1": 139,
+          "x2": 206,
+          "y2": 213,
+          "width": 87,
+          "height": 74,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925761.035154
+        }
+      ],
+      "total_rectangles": 3,
+      "holders_count": 1,
+      "signs_count": 2,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1023",
+      "photo_path": "sample_photos\\holders-photos\\1023.png",
+      "photo_name": "1023.png",
+      "timestamp": 1758925781.7850113,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 144,
+          "y1": 80,
+          "x2": 190,
+          "y2": 434,
+          "width": 46,
+          "height": 354,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925781.7850113
+        },
+        {
+          "id": 2,
+          "x1": 117,
+          "y1": 114,
+          "x2": 204,
+          "y2": 188,
+          "width": 87,
+          "height": 74,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925781.7850113
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1023",
+      "photo_path": "sample_photos\\holders-photos\\1023.png",
+      "photo_name": "1023.png",
+      "timestamp": 1758925797.9691992,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 117,
+          "y1": 114,
+          "x2": 204,
+          "y2": 188,
+          "width": 87,
+          "height": 74,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925797.9691992
+        },
+        {
+          "id": 2,
+          "x1": 144,
+          "y1": 80,
+          "x2": 190,
+          "y2": 434,
+          "width": 46,
+          "height": 354,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925797.9691992
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1027",
+      "photo_path": "sample_photos\\holders-photos\\1027.png",
+      "photo_name": "1027.png",
+      "timestamp": 1758925850.9105985,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 133,
+          "y1": 67,
+          "x2": 226,
+          "y2": 464,
+          "width": 93,
+          "height": 397,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925850.9105985
+        },
+        {
+          "id": 2,
+          "x1": 75,
+          "y1": 53,
+          "x2": 275,
+          "y2": 166,
+          "width": 200,
+          "height": 113,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925850.9105985
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1028",
+      "photo_path": "sample_photos\\holders-photos\\1028.png",
+      "photo_name": "1028.png",
+      "timestamp": 1758925863.2100437,
+      "rectangles": [],
+      "total_rectangles": 0,
+      "holders_count": 0,
+      "signs_count": 0,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1028",
+      "photo_path": "sample_photos\\holders-photos\\1028.png",
+      "photo_name": "1028.png",
+      "timestamp": 1758925898.263129,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 130,
+          "y1": 67,
+          "x2": 283,
+          "y2": 161,
+          "width": 153,
+          "height": 94,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925898.263129
+        },
+        {
+          "id": 2,
+          "x1": 172,
+          "y1": 65,
+          "x2": 229,
+          "y2": 418,
+          "width": 57,
+          "height": 353,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925898.263129
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1028",
+      "photo_path": "sample_photos\\holders-photos\\1028.png",
+      "photo_name": "1028.png",
+      "timestamp": 1758925907.014865,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 114,
+          "y1": 73,
+          "x2": 162,
+          "y2": 428,
+          "width": 48,
+          "height": 355,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925907.014865
+        },
+        {
+          "id": 2,
+          "x1": 97,
+          "y1": 60,
+          "x2": 189,
+          "y2": 136,
+          "width": 92,
+          "height": 76,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925907.014865
+        },
+        {
+          "id": 3,
+          "x1": 98,
+          "y1": 151,
+          "x2": 190,
+          "y2": 227,
+          "width": 92,
+          "height": 76,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925907.014865
+        }
+      ],
+      "total_rectangles": 3,
+      "holders_count": 1,
+      "signs_count": 2,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1028",
+      "photo_path": "sample_photos\\holders-photos\\1028.png",
+      "photo_name": "1028.png",
+      "timestamp": 1758925924.2863283,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 177,
+          "y1": 95,
+          "x2": 224,
+          "y2": 428,
+          "width": 47,
+          "height": 333,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925924.2863283
+        },
+        {
+          "id": 2,
+          "x1": 137,
+          "y1": 61,
+          "x2": 284,
+          "y2": 152,
+          "width": 147,
+          "height": 91,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925924.2863283
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1028",
+      "photo_path": "sample_photos\\holders-photos\\1028.png",
+      "photo_name": "1028.png",
+      "timestamp": 1758925925.7845852,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 177,
+          "y1": 95,
+          "x2": 224,
+          "y2": 428,
+          "width": 47,
+          "height": 333,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925925.7845852
+        },
+        {
+          "id": 2,
+          "x1": 137,
+          "y1": 61,
+          "x2": 284,
+          "y2": 152,
+          "width": 147,
+          "height": 91,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925925.7845852
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1029",
+      "photo_path": "sample_photos\\holders-photos\\1029.png",
+      "photo_name": "1029.png",
+      "timestamp": 1758925942.5765386,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 107,
+          "y1": 83,
+          "x2": 155,
+          "y2": 437,
+          "width": 48,
+          "height": 354,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925942.5765386
+        },
+        {
+          "id": 2,
+          "x1": 101,
+          "y1": 60,
+          "x2": 196,
+          "y2": 137,
+          "width": 95,
+          "height": 77,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925942.5765386
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "1029",
+      "photo_path": "sample_photos\\holders-photos\\1029.png",
+      "photo_name": "1029.png",
+      "timestamp": 1758925947.440398,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 107,
+          "y1": 83,
+          "x2": 155,
+          "y2": 437,
+          "width": 48,
+          "height": 354,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925947.440398
+        },
+        {
+          "id": 2,
+          "x1": 101,
+          "y1": 60,
+          "x2": 196,
+          "y2": 137,
+          "width": 95,
+          "height": 77,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925947.440398
+        }
+      ],
+      "total_rectangles": 2,
+      "holders_count": 1,
+      "signs_count": 1,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "103",
+      "photo_path": "sample_photos\\holders-photos\\103.png",
+      "photo_name": "103.png",
+      "timestamp": 1758925980.077361,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 135,
+          "y1": 75,
+          "x2": 183,
+          "y2": 429,
+          "width": 48,
+          "height": 354,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925980.077361
+        },
+        {
+          "id": 2,
+          "x1": 119,
+          "y1": 93,
+          "x2": 214,
+          "y2": 170,
+          "width": 95,
+          "height": 77,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925980.077361
+        },
+        {
+          "id": 3,
+          "x1": 117,
+          "y1": 172,
+          "x2": 212,
+          "y2": 249,
+          "width": 95,
+          "height": 77,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758925980.077361
+        }
+      ],
+      "total_rectangles": 3,
+      "holders_count": 1,
+      "signs_count": 2,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    }
+  ]
+}

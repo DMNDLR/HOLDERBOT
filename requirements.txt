@@ -20,6 +20,15 @@ tqdm==4.66.1
 # Logging and debugging
 loguru==0.7.2
 
+# Required ML libraries for training
+scikit-learn==1.3.2
+joblib==1.3.2
+scipy==1.11.4
+matplotlib==3.8.2
+
+# GUI for manual labeling
+tkinter
+
 # Optional AI/ML for advanced image analysis
 # tensorflow==2.14.0
 # torch==2.1.0

@@ -1,0 +1,2270 @@
+{
+  "version": "1.0",
+  "created": 1758911565.2068431,
+  "statistics": {
+    "total_photos": 24,
+    "total_rectangles": 210,
+    "data_sources": {
+      "manual_priority": 1,
+      "yolo_filtered": 23
+    }
+  },
+  "dataset": [
+    {
+      "photo_id": "1003",
+      "photo_path": "sample_photos\\holders-photos\\1003.png",
+      "rectangles": [
+        {
+          "x1": 179,
+          "y1": 20,
+          "x2": 218,
+          "y2": 268,
+          "type": "holder",
+          "canvas_id": 1724
+        },
+        {
+          "x1": 160,
+          "y1": 15,
+          "x2": 243,
+          "y2": 90,
+          "type": "sign",
+          "canvas_id": 1769
+        },
+        {
+          "x1": 179,
+          "y1": 20,
+          "x2": 218,
+          "y2": 268,
+          "type": "holder",
+          "canvas_id": 1773
+        },
+        {
+          "x1": 160,
+          "y1": 15,
+          "x2": 243,
+          "y2": 90,
+          "type": "sign",
+          "canvas_id": 1774
+        },
+        {
+          "x1": 179,
+          "y1": 20,
+          "x2": 218,
+          "y2": 268,
+          "type": "holder",
+          "canvas_id": 1773
+        },
+        {
+          "x1": 160,
+          "y1": 15,
+          "x2": 243,
+          "y2": 90,
+          "type": "sign",
+          "canvas_id": 1774
+        },
+        {
+          "x1": 179,
+          "y1": 20,
+          "x2": 218,
+          "y2": 268,
+          "type": "holder",
+          "canvas_id": 1773
+        },
+        {
+          "x1": 160,
+          "y1": 15,
+          "x2": 243,
+          "y2": 90,
+          "type": "sign",
+          "canvas_id": 1774
+        },
+        {
+          "x1": 179,
+          "y1": 20,
+          "x2": 218,
+          "y2": 268,
+          "type": "holder",
+          "canvas_id": 1773
+        },
+        {
+          "x1": 160,
+          "y1": 15,
+          "x2": 243,
+          "y2": 90,
+          "type": "sign",
+          "canvas_id": 1774
+        },
+        {
+          "x1": 179,
+          "y1": 20,
+          "x2": 218,
+          "y2": 268,
+          "type": "holder",
+          "canvas_id": 1724
+        },
+        {
+          "x1": 160,
+          "y1": 15,
+          "x2": 243,
+          "y2": 90,
+          "type": "sign",
+          "canvas_id": 1769
+        },
+        {
+          "x1": 179,
+          "y1": 20,
+          "x2": 218,
+          "y2": 268,
+          "type": "holder",
+          "canvas_id": 1773
+        },
+        {
+          "x1": 160,
+          "y1": 15,
+          "x2": 243,
+          "y2": 90,
+          "type": "sign",
+          "canvas_id": 1774
+        },
+        {
+          "x1": 179,
+          "y1": 20,
+          "x2": 218,
+          "y2": 268,
+          "type": "holder",
+          "canvas_id": 1773
+        },
+        {
+          "x1": 160,
+          "y1": 15,
+          "x2": 243,
+          "y2": 90,
+          "type": "sign",
+          "canvas_id": 1774
+        },
+        {
+          "x1": 179,
+          "y1": 20,
+          "x2": 218,
+          "y2": 268,
+          "type": "holder",
+          "canvas_id": 1773
+        },
+        {
+          "x1": 160,
+          "y1": 15,
+          "x2": 243,
+          "y2": 90,
+          "type": "sign",
+          "canvas_id": 1774
+        },
+        {
+          "x1": 179,
+          "y1": 20,
+          "x2": 218,
+          "y2": 268,
+          "type": "holder",
+          "canvas_id": 1773
+        },
+        {
+          "x1": 160,
+          "y1": 15,
+          "x2": 243,
+          "y2": 90,
+          "type": "sign",
+          "canvas_id": 1774
+        },
+        {
+          "x1": 179,
+          "y1": 20,
+          "x2": 218,
+          "y2": 268,
+          "type": "holder",
+          "canvas_id": 1724
+        },
+        {
+          "x1": 160,
+          "y1": 15,
+          "x2": 243,
+          "y2": 90,
+          "type": "sign",
+          "canvas_id": 1769
+        },
+        {
+          "x1": 179,
+          "y1": 20,
+          "x2": 218,
+          "y2": 268,
+          "type": "holder",
+          "canvas_id": 1773
+        },
+        {
+          "x1": 160,
+          "y1": 15,
+          "x2": 243,
+          "y2": 90,
+          "type": "sign",
+          "canvas_id": 1774
+        },
+        {
+          "x1": 179,
+          "y1": 20,
+          "x2": 218,
+          "y2": 268,
+          "type": "holder",
+          "canvas_id": 1773
+        },
+        {
+          "x1": 160,
+          "y1": 15,
+          "x2": 243,
+          "y2": 90,
+          "type": "sign",
+          "canvas_id": 1774
+        },
+        {
+          "x1": 179,
+          "y1": 20,
+          "x2": 218,
+          "y2": 268,
+          "type": "holder",
+          "canvas_id": 1773
+        },
+        {
+          "x1": 160,
+          "y1": 15,
+          "x2": 243,
+          "y2": 90,
+          "type": "sign",
+          "canvas_id": 1774
+        },
+        {
+          "x1": 179,
+          "y1": 20,
+          "x2": 218,
+          "y2": 268,
+          "type": "holder",
+          "canvas_id": 1773
+        },
+        {
+          "x1": 160,
+          "y1": 15,
+          "x2": 243,
+          "y2": 90,
+          "type": "sign",
+          "canvas_id": 1774
+        }
+      ],
+      "data_source": "manual_priority",
+      "quality": "high",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "100",
+      "photo_path": "sample_photos\\holders-photos\\100.png",
+      "rectangles": [
+        {
+          "x1": 125,
+          "y1": 351,
+          "x2": 137,
+          "y2": 362,
+          "type": "sign",
+          "confidence": 0.3035171926021576,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 125,
+          "y1": 351,
+          "x2": 137,
+          "y2": 362,
+          "type": "sign",
+          "confidence": 0.3035171926021576,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 125,
+          "y1": 351,
+          "x2": 137,
+          "y2": 362,
+          "type": "sign",
+          "confidence": 0.3035171926021576,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 125,
+          "y1": 351,
+          "x2": 137,
+          "y2": 362,
+          "type": "sign",
+          "confidence": 0.3035171926021576,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 125,
+          "y1": 351,
+          "x2": 137,
+          "y2": 362,
+          "type": "sign",
+          "confidence": 0.3035171926021576,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 125,
+          "y1": 351,
+          "x2": 137,
+          "y2": 362,
+          "type": "sign",
+          "confidence": 0.3035171926021576,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1000",
+      "photo_path": "sample_photos\\holders-photos\\1000.png",
+      "rectangles": [
+        {
+          "x1": 90,
+          "y1": 144,
+          "x2": 110,
+          "y2": 158,
+          "type": "sign",
+          "confidence": 0.572923481464386,
+          "yolo_class": "car",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 58,
+          "y1": 243,
+          "x2": 70,
+          "y2": 254,
+          "type": "sign",
+          "confidence": 0.5155621767044067,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 90,
+          "y1": 144,
+          "x2": 110,
+          "y2": 158,
+          "type": "sign",
+          "confidence": 0.572923481464386,
+          "yolo_class": "car",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 58,
+          "y1": 243,
+          "x2": 70,
+          "y2": 254,
+          "type": "sign",
+          "confidence": 0.5155621767044067,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 90,
+          "y1": 144,
+          "x2": 110,
+          "y2": 158,
+          "type": "sign",
+          "confidence": 0.572923481464386,
+          "yolo_class": "car",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 58,
+          "y1": 243,
+          "x2": 70,
+          "y2": 254,
+          "type": "sign",
+          "confidence": 0.5155621767044067,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 90,
+          "y1": 144,
+          "x2": 110,
+          "y2": 158,
+          "type": "sign",
+          "confidence": 0.572923481464386,
+          "yolo_class": "car",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 58,
+          "y1": 243,
+          "x2": 70,
+          "y2": 254,
+          "type": "sign",
+          "confidence": 0.5155621767044067,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 90,
+          "y1": 144,
+          "x2": 110,
+          "y2": 158,
+          "type": "sign",
+          "confidence": 0.572923481464386,
+          "yolo_class": "car",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 58,
+          "y1": 243,
+          "x2": 70,
+          "y2": 254,
+          "type": "sign",
+          "confidence": 0.5155621767044067,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 90,
+          "y1": 144,
+          "x2": 110,
+          "y2": 158,
+          "type": "sign",
+          "confidence": 0.572923481464386,
+          "yolo_class": "car",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 58,
+          "y1": 243,
+          "x2": 70,
+          "y2": 254,
+          "type": "sign",
+          "confidence": 0.5155621767044067,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1006",
+      "photo_path": "sample_photos\\holders-photos\\1006.png",
+      "rectangles": [
+        {
+          "x1": 177,
+          "y1": 114,
+          "x2": 193,
+          "y2": 150,
+          "type": "holder",
+          "confidence": 0.7115066647529602,
+          "yolo_class": "person",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 60,
+          "y1": 19,
+          "x2": 156,
+          "y2": 94,
+          "type": "sign",
+          "confidence": 0.705754280090332,
+          "yolo_class": "truck",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 64,
+          "y1": 45,
+          "x2": 118,
+          "y2": 68,
+          "type": "sign",
+          "confidence": 0.6509473323822021,
+          "yolo_class": "car",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 177,
+          "y1": 114,
+          "x2": 193,
+          "y2": 150,
+          "type": "holder",
+          "confidence": 0.7115066647529602,
+          "yolo_class": "person",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 60,
+          "y1": 19,
+          "x2": 156,
+          "y2": 94,
+          "type": "sign",
+          "confidence": 0.705754280090332,
+          "yolo_class": "truck",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 64,
+          "y1": 45,
+          "x2": 118,
+          "y2": 68,
+          "type": "sign",
+          "confidence": 0.6509473323822021,
+          "yolo_class": "car",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 177,
+          "y1": 114,
+          "x2": 193,
+          "y2": 150,
+          "type": "holder",
+          "confidence": 0.7115066647529602,
+          "yolo_class": "person",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 60,
+          "y1": 19,
+          "x2": 156,
+          "y2": 94,
+          "type": "sign",
+          "confidence": 0.705754280090332,
+          "yolo_class": "truck",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 64,
+          "y1": 45,
+          "x2": 118,
+          "y2": 68,
+          "type": "sign",
+          "confidence": 0.6509473323822021,
+          "yolo_class": "car",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 177,
+          "y1": 114,
+          "x2": 193,
+          "y2": 150,
+          "type": "holder",
+          "confidence": 0.7115066647529602,
+          "yolo_class": "person",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 60,
+          "y1": 19,
+          "x2": 156,
+          "y2": 94,
+          "type": "sign",
+          "confidence": 0.705754280090332,
+          "yolo_class": "truck",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 64,
+          "y1": 45,
+          "x2": 118,
+          "y2": 68,
+          "type": "sign",
+          "confidence": 0.6509473323822021,
+          "yolo_class": "car",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 177,
+          "y1": 114,
+          "x2": 193,
+          "y2": 150,
+          "type": "holder",
+          "confidence": 0.7115066647529602,
+          "yolo_class": "person",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 60,
+          "y1": 19,
+          "x2": 156,
+          "y2": 94,
+          "type": "sign",
+          "confidence": 0.705754280090332,
+          "yolo_class": "truck",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 64,
+          "y1": 45,
+          "x2": 118,
+          "y2": 68,
+          "type": "sign",
+          "confidence": 0.6509473323822021,
+          "yolo_class": "car",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 177,
+          "y1": 114,
+          "x2": 193,
+          "y2": 150,
+          "type": "holder",
+          "confidence": 0.7115066647529602,
+          "yolo_class": "person",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 60,
+          "y1": 19,
+          "x2": 156,
+          "y2": 94,
+          "type": "sign",
+          "confidence": 0.705754280090332,
+          "yolo_class": "truck",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 64,
+          "y1": 45,
+          "x2": 118,
+          "y2": 68,
+          "type": "sign",
+          "confidence": 0.6509473323822021,
+          "yolo_class": "car",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1008",
+      "photo_path": "sample_photos\\holders-photos\\1008.png",
+      "rectangles": [
+        {
+          "x1": 53,
+          "y1": 35,
+          "x2": 81,
+          "y2": 62,
+          "type": "sign",
+          "confidence": 0.5507287383079529,
+          "yolo_class": "clock",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 57,
+          "y1": 220,
+          "x2": 69,
+          "y2": 232,
+          "type": "sign",
+          "confidence": 0.5279421210289001,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 53,
+          "y1": 35,
+          "x2": 81,
+          "y2": 62,
+          "type": "sign",
+          "confidence": 0.5507287383079529,
+          "yolo_class": "clock",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 57,
+          "y1": 220,
+          "x2": 69,
+          "y2": 232,
+          "type": "sign",
+          "confidence": 0.5279421210289001,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 53,
+          "y1": 35,
+          "x2": 81,
+          "y2": 62,
+          "type": "sign",
+          "confidence": 0.5507287383079529,
+          "yolo_class": "clock",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 57,
+          "y1": 220,
+          "x2": 69,
+          "y2": 232,
+          "type": "sign",
+          "confidence": 0.5279421210289001,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 53,
+          "y1": 35,
+          "x2": 81,
+          "y2": 62,
+          "type": "sign",
+          "confidence": 0.5507287383079529,
+          "yolo_class": "clock",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 57,
+          "y1": 220,
+          "x2": 69,
+          "y2": 232,
+          "type": "sign",
+          "confidence": 0.5279421210289001,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 53,
+          "y1": 35,
+          "x2": 81,
+          "y2": 62,
+          "type": "sign",
+          "confidence": 0.5507287383079529,
+          "yolo_class": "clock",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 57,
+          "y1": 220,
+          "x2": 69,
+          "y2": 232,
+          "type": "sign",
+          "confidence": 0.5279421210289001,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 53,
+          "y1": 35,
+          "x2": 81,
+          "y2": 62,
+          "type": "sign",
+          "confidence": 0.5507287383079529,
+          "yolo_class": "clock",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 57,
+          "y1": 220,
+          "x2": 69,
+          "y2": 232,
+          "type": "sign",
+          "confidence": 0.5279421210289001,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1011",
+      "photo_path": "sample_photos\\holders-photos\\1011.png",
+      "rectangles": [
+        {
+          "x1": 55,
+          "y1": 32,
+          "x2": 119,
+          "y2": 98,
+          "type": "sign",
+          "confidence": 0.6143513321876526,
+          "yolo_class": "frisbee",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 55,
+          "y1": 32,
+          "x2": 119,
+          "y2": 98,
+          "type": "sign",
+          "confidence": 0.6143513321876526,
+          "yolo_class": "frisbee",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 55,
+          "y1": 32,
+          "x2": 119,
+          "y2": 98,
+          "type": "sign",
+          "confidence": 0.6143513321876526,
+          "yolo_class": "frisbee",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 55,
+          "y1": 32,
+          "x2": 119,
+          "y2": 98,
+          "type": "sign",
+          "confidence": 0.6143513321876526,
+          "yolo_class": "frisbee",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 55,
+          "y1": 32,
+          "x2": 119,
+          "y2": 98,
+          "type": "sign",
+          "confidence": 0.6143513321876526,
+          "yolo_class": "frisbee",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 55,
+          "y1": 32,
+          "x2": 119,
+          "y2": 98,
+          "type": "sign",
+          "confidence": 0.6143513321876526,
+          "yolo_class": "frisbee",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1012",
+      "photo_path": "sample_photos\\holders-photos\\1012.png",
+      "rectangles": [
+        {
+          "x1": 77,
+          "y1": 250,
+          "x2": 89,
+          "y2": 262,
+          "type": "sign",
+          "confidence": 0.5222058296203613,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 77,
+          "y1": 250,
+          "x2": 89,
+          "y2": 262,
+          "type": "sign",
+          "confidence": 0.5222058296203613,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 77,
+          "y1": 250,
+          "x2": 89,
+          "y2": 262,
+          "type": "sign",
+          "confidence": 0.5222058296203613,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 77,
+          "y1": 250,
+          "x2": 89,
+          "y2": 262,
+          "type": "sign",
+          "confidence": 0.5222058296203613,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 77,
+          "y1": 250,
+          "x2": 89,
+          "y2": 262,
+          "type": "sign",
+          "confidence": 0.5222058296203613,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 77,
+          "y1": 250,
+          "x2": 89,
+          "y2": 262,
+          "type": "sign",
+          "confidence": 0.5222058296203613,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1013",
+      "photo_path": "sample_photos\\holders-photos\\1013.png",
+      "rectangles": [
+        {
+          "x1": 63,
+          "y1": 28,
+          "x2": 115,
+          "y2": 87,
+          "type": "sign",
+          "confidence": 0.4988867938518524,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 63,
+          "y1": 28,
+          "x2": 115,
+          "y2": 87,
+          "type": "sign",
+          "confidence": 0.4988867938518524,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 63,
+          "y1": 28,
+          "x2": 115,
+          "y2": 87,
+          "type": "sign",
+          "confidence": 0.4988867938518524,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 63,
+          "y1": 28,
+          "x2": 115,
+          "y2": 87,
+          "type": "sign",
+          "confidence": 0.4988867938518524,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 63,
+          "y1": 28,
+          "x2": 115,
+          "y2": 87,
+          "type": "sign",
+          "confidence": 0.4988867938518524,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 63,
+          "y1": 28,
+          "x2": 115,
+          "y2": 87,
+          "type": "sign",
+          "confidence": 0.4988867938518524,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1014",
+      "photo_path": "sample_photos\\holders-photos\\1014.png",
+      "rectangles": [
+        {
+          "x1": 75,
+          "y1": 284,
+          "x2": 86,
+          "y2": 295,
+          "type": "sign",
+          "confidence": 0.39666467905044556,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 75,
+          "y1": 284,
+          "x2": 86,
+          "y2": 295,
+          "type": "sign",
+          "confidence": 0.39666467905044556,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 75,
+          "y1": 284,
+          "x2": 86,
+          "y2": 295,
+          "type": "sign",
+          "confidence": 0.39666467905044556,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 75,
+          "y1": 284,
+          "x2": 86,
+          "y2": 295,
+          "type": "sign",
+          "confidence": 0.39666467905044556,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 75,
+          "y1": 284,
+          "x2": 86,
+          "y2": 295,
+          "type": "sign",
+          "confidence": 0.39666467905044556,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 75,
+          "y1": 284,
+          "x2": 86,
+          "y2": 295,
+          "type": "sign",
+          "confidence": 0.39666467905044556,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1017",
+      "photo_path": "sample_photos\\holders-photos\\1017.png",
+      "rectangles": [
+        {
+          "x1": 72,
+          "y1": 212,
+          "x2": 83,
+          "y2": 224,
+          "type": "sign",
+          "confidence": 0.4164580702781677,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 72,
+          "y1": 212,
+          "x2": 83,
+          "y2": 224,
+          "type": "sign",
+          "confidence": 0.4164580702781677,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 72,
+          "y1": 212,
+          "x2": 83,
+          "y2": 224,
+          "type": "sign",
+          "confidence": 0.4164580702781677,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 72,
+          "y1": 212,
+          "x2": 83,
+          "y2": 224,
+          "type": "sign",
+          "confidence": 0.4164580702781677,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 72,
+          "y1": 212,
+          "x2": 83,
+          "y2": 224,
+          "type": "sign",
+          "confidence": 0.4164580702781677,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 72,
+          "y1": 212,
+          "x2": 83,
+          "y2": 224,
+          "type": "sign",
+          "confidence": 0.4164580702781677,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1018",
+      "photo_path": "sample_photos\\holders-photos\\1018.png",
+      "rectangles": [
+        {
+          "x1": 88,
+          "y1": 113,
+          "x2": 141,
+          "y2": 167,
+          "type": "sign",
+          "confidence": 0.7593643665313721,
+          "yolo_class": "stop sign",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 112,
+          "y1": 335,
+          "x2": 124,
+          "y2": 346,
+          "type": "sign",
+          "confidence": 0.7394469380378723,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 88,
+          "y1": 113,
+          "x2": 141,
+          "y2": 167,
+          "type": "sign",
+          "confidence": 0.7593643665313721,
+          "yolo_class": "stop sign",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 112,
+          "y1": 335,
+          "x2": 124,
+          "y2": 346,
+          "type": "sign",
+          "confidence": 0.7394469380378723,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 88,
+          "y1": 113,
+          "x2": 141,
+          "y2": 167,
+          "type": "sign",
+          "confidence": 0.7593643665313721,
+          "yolo_class": "stop sign",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 112,
+          "y1": 335,
+          "x2": 124,
+          "y2": 346,
+          "type": "sign",
+          "confidence": 0.7394469380378723,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 88,
+          "y1": 113,
+          "x2": 141,
+          "y2": 167,
+          "type": "sign",
+          "confidence": 0.7593643665313721,
+          "yolo_class": "stop sign",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 112,
+          "y1": 335,
+          "x2": 124,
+          "y2": 346,
+          "type": "sign",
+          "confidence": 0.7394469380378723,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 88,
+          "y1": 113,
+          "x2": 141,
+          "y2": 167,
+          "type": "sign",
+          "confidence": 0.7593643665313721,
+          "yolo_class": "stop sign",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 112,
+          "y1": 335,
+          "x2": 124,
+          "y2": 346,
+          "type": "sign",
+          "confidence": 0.7394469380378723,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 88,
+          "y1": 113,
+          "x2": 141,
+          "y2": 167,
+          "type": "sign",
+          "confidence": 0.7593643665313721,
+          "yolo_class": "stop sign",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 112,
+          "y1": 335,
+          "x2": 124,
+          "y2": 346,
+          "type": "sign",
+          "confidence": 0.7394469380378723,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1019",
+      "photo_path": "sample_photos\\holders-photos\\1019.png",
+      "rectangles": [
+        {
+          "x1": 66,
+          "y1": 297,
+          "x2": 77,
+          "y2": 309,
+          "type": "sign",
+          "confidence": 0.34998318552970886,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 66,
+          "y1": 297,
+          "x2": 77,
+          "y2": 309,
+          "type": "sign",
+          "confidence": 0.34998318552970886,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 66,
+          "y1": 297,
+          "x2": 77,
+          "y2": 309,
+          "type": "sign",
+          "confidence": 0.34998318552970886,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 66,
+          "y1": 297,
+          "x2": 77,
+          "y2": 309,
+          "type": "sign",
+          "confidence": 0.34998318552970886,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 66,
+          "y1": 297,
+          "x2": 77,
+          "y2": 309,
+          "type": "sign",
+          "confidence": 0.34998318552970886,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 66,
+          "y1": 297,
+          "x2": 77,
+          "y2": 309,
+          "type": "sign",
+          "confidence": 0.34998318552970886,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "102",
+      "photo_path": "sample_photos\\holders-photos\\102.png",
+      "rectangles": [
+        {
+          "x1": 62,
+          "y1": 276,
+          "x2": 73,
+          "y2": 288,
+          "type": "sign",
+          "confidence": 0.38054728507995605,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 62,
+          "y1": 276,
+          "x2": 73,
+          "y2": 288,
+          "type": "sign",
+          "confidence": 0.38054728507995605,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 62,
+          "y1": 276,
+          "x2": 73,
+          "y2": 288,
+          "type": "sign",
+          "confidence": 0.38054728507995605,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 62,
+          "y1": 276,
+          "x2": 73,
+          "y2": 288,
+          "type": "sign",
+          "confidence": 0.38054728507995605,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 62,
+          "y1": 276,
+          "x2": 73,
+          "y2": 288,
+          "type": "sign",
+          "confidence": 0.38054728507995605,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 62,
+          "y1": 276,
+          "x2": 73,
+          "y2": 288,
+          "type": "sign",
+          "confidence": 0.38054728507995605,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1021",
+      "photo_path": "sample_photos\\holders-photos\\1021.png",
+      "rectangles": [
+        {
+          "x1": 81,
+          "y1": 297,
+          "x2": 92,
+          "y2": 309,
+          "type": "sign",
+          "confidence": 0.7192937731742859,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 81,
+          "y1": 297,
+          "x2": 92,
+          "y2": 309,
+          "type": "sign",
+          "confidence": 0.7192937731742859,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 81,
+          "y1": 297,
+          "x2": 92,
+          "y2": 309,
+          "type": "sign",
+          "confidence": 0.7192937731742859,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 81,
+          "y1": 297,
+          "x2": 92,
+          "y2": 309,
+          "type": "sign",
+          "confidence": 0.7192937731742859,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 81,
+          "y1": 297,
+          "x2": 92,
+          "y2": 309,
+          "type": "sign",
+          "confidence": 0.7192937731742859,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 81,
+          "y1": 297,
+          "x2": 92,
+          "y2": 309,
+          "type": "sign",
+          "confidence": 0.7192937731742859,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1023",
+      "photo_path": "sample_photos\\holders-photos\\1023.png",
+      "rectangles": [
+        {
+          "x1": 62,
+          "y1": 53,
+          "x2": 103,
+          "y2": 98,
+          "type": "sign",
+          "confidence": 0.8921148180961609,
+          "yolo_class": "stop sign",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 80,
+          "y1": 212,
+          "x2": 91,
+          "y2": 224,
+          "type": "sign",
+          "confidence": 0.32199209928512573,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 62,
+          "y1": 53,
+          "x2": 103,
+          "y2": 98,
+          "type": "sign",
+          "confidence": 0.8921148180961609,
+          "yolo_class": "stop sign",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 80,
+          "y1": 212,
+          "x2": 91,
+          "y2": 224,
+          "type": "sign",
+          "confidence": 0.32199209928512573,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 62,
+          "y1": 53,
+          "x2": 103,
+          "y2": 98,
+          "type": "sign",
+          "confidence": 0.8921148180961609,
+          "yolo_class": "stop sign",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 80,
+          "y1": 212,
+          "x2": 91,
+          "y2": 224,
+          "type": "sign",
+          "confidence": 0.32199209928512573,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 62,
+          "y1": 53,
+          "x2": 103,
+          "y2": 98,
+          "type": "sign",
+          "confidence": 0.8921148180961609,
+          "yolo_class": "stop sign",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 80,
+          "y1": 212,
+          "x2": 91,
+          "y2": 224,
+          "type": "sign",
+          "confidence": 0.32199209928512573,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 62,
+          "y1": 53,
+          "x2": 103,
+          "y2": 98,
+          "type": "sign",
+          "confidence": 0.8921148180961609,
+          "yolo_class": "stop sign",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 80,
+          "y1": 212,
+          "x2": 91,
+          "y2": 224,
+          "type": "sign",
+          "confidence": 0.32199209928512573,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 62,
+          "y1": 53,
+          "x2": 103,
+          "y2": 98,
+          "type": "sign",
+          "confidence": 0.8921148180961609,
+          "yolo_class": "stop sign",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 80,
+          "y1": 212,
+          "x2": 91,
+          "y2": 224,
+          "type": "sign",
+          "confidence": 0.32199209928512573,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1024",
+      "photo_path": "sample_photos\\holders-photos\\1024.png",
+      "rectangles": [
+        {
+          "x1": 76,
+          "y1": 231,
+          "x2": 87,
+          "y2": 243,
+          "type": "sign",
+          "confidence": 0.3827180862426758,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 76,
+          "y1": 231,
+          "x2": 87,
+          "y2": 243,
+          "type": "sign",
+          "confidence": 0.3827180862426758,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 76,
+          "y1": 231,
+          "x2": 87,
+          "y2": 243,
+          "type": "sign",
+          "confidence": 0.3827180862426758,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 76,
+          "y1": 231,
+          "x2": 87,
+          "y2": 243,
+          "type": "sign",
+          "confidence": 0.3827180862426758,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 76,
+          "y1": 231,
+          "x2": 87,
+          "y2": 243,
+          "type": "sign",
+          "confidence": 0.3827180862426758,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 76,
+          "y1": 231,
+          "x2": 87,
+          "y2": 243,
+          "type": "sign",
+          "confidence": 0.3827180862426758,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1026",
+      "photo_path": "sample_photos\\holders-photos\\1026.png",
+      "rectangles": [
+        {
+          "x1": 104,
+          "y1": 299,
+          "x2": 116,
+          "y2": 311,
+          "type": "sign",
+          "confidence": 0.39715832471847534,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 104,
+          "y1": 299,
+          "x2": 116,
+          "y2": 311,
+          "type": "sign",
+          "confidence": 0.39715832471847534,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 104,
+          "y1": 299,
+          "x2": 116,
+          "y2": 311,
+          "type": "sign",
+          "confidence": 0.39715832471847534,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 104,
+          "y1": 299,
+          "x2": 116,
+          "y2": 311,
+          "type": "sign",
+          "confidence": 0.39715832471847534,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 104,
+          "y1": 299,
+          "x2": 116,
+          "y2": 311,
+          "type": "sign",
+          "confidence": 0.39715832471847534,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 104,
+          "y1": 299,
+          "x2": 116,
+          "y2": 311,
+          "type": "sign",
+          "confidence": 0.39715832471847534,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1032",
+      "photo_path": "sample_photos\\holders-photos\\1032.png",
+      "rectangles": [
+        {
+          "x1": 84,
+          "y1": 260,
+          "x2": 94,
+          "y2": 271,
+          "type": "sign",
+          "confidence": 0.5391403436660767,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 84,
+          "y1": 260,
+          "x2": 94,
+          "y2": 271,
+          "type": "sign",
+          "confidence": 0.5391403436660767,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 84,
+          "y1": 260,
+          "x2": 94,
+          "y2": 271,
+          "type": "sign",
+          "confidence": 0.5391403436660767,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 84,
+          "y1": 260,
+          "x2": 94,
+          "y2": 271,
+          "type": "sign",
+          "confidence": 0.5391403436660767,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 84,
+          "y1": 260,
+          "x2": 94,
+          "y2": 271,
+          "type": "sign",
+          "confidence": 0.5391403436660767,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 84,
+          "y1": 260,
+          "x2": 94,
+          "y2": 271,
+          "type": "sign",
+          "confidence": 0.5391403436660767,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1033",
+      "photo_path": "sample_photos\\holders-photos\\1033.png",
+      "rectangles": [
+        {
+          "x1": 75,
+          "y1": 239,
+          "x2": 86,
+          "y2": 251,
+          "type": "sign",
+          "confidence": 0.37474119663238525,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 75,
+          "y1": 239,
+          "x2": 86,
+          "y2": 251,
+          "type": "sign",
+          "confidence": 0.37474119663238525,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 75,
+          "y1": 239,
+          "x2": 86,
+          "y2": 251,
+          "type": "sign",
+          "confidence": 0.37474119663238525,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 75,
+          "y1": 239,
+          "x2": 86,
+          "y2": 251,
+          "type": "sign",
+          "confidence": 0.37474119663238525,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 75,
+          "y1": 239,
+          "x2": 86,
+          "y2": 251,
+          "type": "sign",
+          "confidence": 0.37474119663238525,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 75,
+          "y1": 239,
+          "x2": 86,
+          "y2": 251,
+          "type": "sign",
+          "confidence": 0.37474119663238525,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1034",
+      "photo_path": "sample_photos\\holders-photos\\1034.png",
+      "rectangles": [
+        {
+          "x1": 49,
+          "y1": 246,
+          "x2": 60,
+          "y2": 257,
+          "type": "sign",
+          "confidence": 0.31492555141448975,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 49,
+          "y1": 246,
+          "x2": 60,
+          "y2": 257,
+          "type": "sign",
+          "confidence": 0.31492555141448975,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 49,
+          "y1": 246,
+          "x2": 60,
+          "y2": 257,
+          "type": "sign",
+          "confidence": 0.31492555141448975,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 49,
+          "y1": 246,
+          "x2": 60,
+          "y2": 257,
+          "type": "sign",
+          "confidence": 0.31492555141448975,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 49,
+          "y1": 246,
+          "x2": 60,
+          "y2": 257,
+          "type": "sign",
+          "confidence": 0.31492555141448975,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 49,
+          "y1": 246,
+          "x2": 60,
+          "y2": 257,
+          "type": "sign",
+          "confidence": 0.31492555141448975,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1036",
+      "photo_path": "sample_photos\\holders-photos\\1036.png",
+      "rectangles": [
+        {
+          "x1": 79,
+          "y1": 277,
+          "x2": 91,
+          "y2": 289,
+          "type": "sign",
+          "confidence": 0.5286306738853455,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 79,
+          "y1": 277,
+          "x2": 91,
+          "y2": 289,
+          "type": "sign",
+          "confidence": 0.5286306738853455,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 79,
+          "y1": 277,
+          "x2": 91,
+          "y2": 289,
+          "type": "sign",
+          "confidence": 0.5286306738853455,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 79,
+          "y1": 277,
+          "x2": 91,
+          "y2": 289,
+          "type": "sign",
+          "confidence": 0.5286306738853455,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 79,
+          "y1": 277,
+          "x2": 91,
+          "y2": 289,
+          "type": "sign",
+          "confidence": 0.5286306738853455,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 79,
+          "y1": 277,
+          "x2": 91,
+          "y2": 289,
+          "type": "sign",
+          "confidence": 0.5286306738853455,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1038",
+      "photo_path": "sample_photos\\holders-photos\\1038.png",
+      "rectangles": [
+        {
+          "x1": 131,
+          "y1": 72,
+          "x2": 232,
+          "y2": 158,
+          "type": "sign",
+          "confidence": 0.38873836398124695,
+          "yolo_class": "frisbee",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 131,
+          "y1": 72,
+          "x2": 232,
+          "y2": 158,
+          "type": "sign",
+          "confidence": 0.38873836398124695,
+          "yolo_class": "frisbee",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 131,
+          "y1": 72,
+          "x2": 232,
+          "y2": 158,
+          "type": "sign",
+          "confidence": 0.38873836398124695,
+          "yolo_class": "frisbee",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 131,
+          "y1": 72,
+          "x2": 232,
+          "y2": 158,
+          "type": "sign",
+          "confidence": 0.38873836398124695,
+          "yolo_class": "frisbee",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 131,
+          "y1": 72,
+          "x2": 232,
+          "y2": 158,
+          "type": "sign",
+          "confidence": 0.38873836398124695,
+          "yolo_class": "frisbee",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 131,
+          "y1": 72,
+          "x2": 232,
+          "y2": 158,
+          "type": "sign",
+          "confidence": 0.38873836398124695,
+          "yolo_class": "frisbee",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1039",
+      "photo_path": "sample_photos\\holders-photos\\1039.png",
+      "rectangles": [
+        {
+          "x1": 62,
+          "y1": 240,
+          "x2": 73,
+          "y2": 252,
+          "type": "sign",
+          "confidence": 0.30975526571273804,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 62,
+          "y1": 240,
+          "x2": 73,
+          "y2": 252,
+          "type": "sign",
+          "confidence": 0.30975526571273804,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 62,
+          "y1": 240,
+          "x2": 73,
+          "y2": 252,
+          "type": "sign",
+          "confidence": 0.30975526571273804,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 62,
+          "y1": 240,
+          "x2": 73,
+          "y2": 252,
+          "type": "sign",
+          "confidence": 0.30975526571273804,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 62,
+          "y1": 240,
+          "x2": 73,
+          "y2": 252,
+          "type": "sign",
+          "confidence": 0.30975526571273804,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 62,
+          "y1": 240,
+          "x2": 73,
+          "y2": 252,
+          "type": "sign",
+          "confidence": 0.30975526571273804,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    },
+    {
+      "photo_id": "1043",
+      "photo_path": "sample_photos\\holders-photos\\1043.png",
+      "rectangles": [
+        {
+          "x1": 72,
+          "y1": 262,
+          "x2": 106,
+          "y2": 282,
+          "type": "sign",
+          "confidence": 0.35665684938430786,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 82,
+          "y1": 270,
+          "x2": 93,
+          "y2": 281,
+          "type": "sign",
+          "confidence": 0.33448365330696106,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 72,
+          "y1": 262,
+          "x2": 106,
+          "y2": 282,
+          "type": "sign",
+          "confidence": 0.35665684938430786,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 82,
+          "y1": 270,
+          "x2": 93,
+          "y2": 281,
+          "type": "sign",
+          "confidence": 0.33448365330696106,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 72,
+          "y1": 262,
+          "x2": 106,
+          "y2": 282,
+          "type": "sign",
+          "confidence": 0.35665684938430786,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 82,
+          "y1": 270,
+          "x2": 93,
+          "y2": 281,
+          "type": "sign",
+          "confidence": 0.33448365330696106,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 72,
+          "y1": 262,
+          "x2": 106,
+          "y2": 282,
+          "type": "sign",
+          "confidence": 0.35665684938430786,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 82,
+          "y1": 270,
+          "x2": 93,
+          "y2": 281,
+          "type": "sign",
+          "confidence": 0.33448365330696106,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 72,
+          "y1": 262,
+          "x2": 106,
+          "y2": 282,
+          "type": "sign",
+          "confidence": 0.35665684938430786,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 82,
+          "y1": 270,
+          "x2": 93,
+          "y2": 281,
+          "type": "sign",
+          "confidence": 0.33448365330696106,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 72,
+          "y1": 262,
+          "x2": 106,
+          "y2": 282,
+          "type": "sign",
+          "confidence": 0.35665684938430786,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        },
+        {
+          "x1": 82,
+          "y1": 270,
+          "x2": 93,
+          "y2": 281,
+          "type": "sign",
+          "confidence": 0.33448365330696106,
+          "yolo_class": "sports ball",
+          "source": "yolo_bootstrap"
+        }
+      ],
+      "data_source": "yolo_filtered",
+      "quality": "medium",
+      "timestamp": 1758911565.2068431
+    }
+  ]
+}

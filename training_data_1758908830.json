@@ -1,0 +1,164 @@
+[
+  {
+    "photo_id": "10",
+    "photo_path": "sample_photos\\holders-photos\\10.png",
+    "timestamp": 1758908699.7517796,
+    "labeled_by": "manual_rectangles",
+    "rectangles": [
+      {
+        "x1": 176,
+        "y1": 48,
+        "x2": 204,
+        "y2": 242,
+        "type": "holder",
+        "canvas_id": 461
+      },
+      {
+        "x1": 165,
+        "y1": 96,
+        "x2": 218,
+        "y2": 144,
+        "type": "sign",
+        "canvas_id": 462
+      },
+      {
+        "x1": 157,
+        "y1": 32,
+        "x2": 223,
+        "y2": 88,
+        "type": "sign",
+        "canvas_id": 463
+      }
+    ],
+    "image_scale": 1.20125786163522,
+    "rectangle_count": 3
+  },
+  {
+    "photo_id": "100",
+    "photo_path": "sample_photos\\holders-photos\\100.png",
+    "timestamp": 1758908762.3961163,
+    "labeled_by": "manual_rectangles",
+    "rectangles": [
+      {
+        "x1": 176,
+        "y1": 39,
+        "x2": 210,
+        "y2": 256,
+        "type": "holder",
+        "canvas_id": 625
+      },
+      {
+        "x1": 168,
+        "y1": 44,
+        "x2": 213,
+        "y2": 82,
+        "type": "sign",
+        "canvas_id": 626
+      }
+    ],
+    "image_scale": 0.6985294117647058,
+    "rectangle_count": 2
+  },
+  {
+    "photo_id": "100",
+    "photo_path": "sample_photos\\holders-photos\\100.png",
+    "timestamp": 1758908765.372807,
+    "labeled_by": "manual_rectangles",
+    "rectangles": [
+      {
+        "x1": 176,
+        "y1": 39,
+        "x2": 210,
+        "y2": 256,
+        "type": "holder",
+        "canvas_id": 625
+      },
+      {
+        "x1": 168,
+        "y1": 44,
+        "x2": 213,
+        "y2": 82,
+        "type": "sign",
+        "canvas_id": 626
+      }
+    ],
+    "image_scale": 0.6985294117647058,
+    "rectangle_count": 2
+  },
+  {
+    "photo_id": "1000",
+    "photo_path": "sample_photos\\holders-photos\\1000.png",
+    "timestamp": 1758908798.3097064,
+    "labeled_by": "manual_rectangles",
+    "rectangles": [
+      {
+        "x1": 185,
+        "y1": 32,
+        "x2": 217,
+        "y2": 257,
+        "type": "holder",
+        "canvas_id": 840
+      },
+      {
+        "x1": 172,
+        "y1": 112,
+        "x2": 230,
+        "y2": 135,
+        "type": "sign",
+        "canvas_id": 841
+      },
+      {
+        "x1": 171,
+        "y1": 72,
+        "x2": 229,
+        "y2": 111,
+        "type": "sign",
+        "canvas_id": 842
+      },
+      {
+        "x1": 180,
+        "y1": 27,
+        "x2": 216,
+        "y2": 66,
+        "type": "sign",
+        "canvas_id": 843
+      }
+    ],
+    "image_scale": 1.0458015267175573,
+    "rectangle_count": 4
+  },
+  {
+    "photo_id": "1001",
+    "photo_path": "sample_photos\\holders-photos\\1001.png",
+    "timestamp": 1758908830.1456614,
+    "labeled_by": "manual_rectangles",
+    "rectangles": [
+      {
+        "x1": 189,
+        "y1": 42,
+        "x2": 212,
+        "y2": 248,
+        "type": "holder",
+        "canvas_id": 1045
+      },
+      {
+        "x1": 179,
+        "y1": 112,
+        "x2": 228,
+        "y2": 158,
+        "type": "sign",
+        "canvas_id": 1046
+      },
+      {
+        "x1": 174,
+        "y1": 40,
+        "x2": 229,
+        "y2": 108,
+        "type": "sign",
+        "canvas_id": 1047
+      }
+    ],
+    "image_scale": 1.2330827067669172,
+    "rectangle_count": 3
+  }
+]

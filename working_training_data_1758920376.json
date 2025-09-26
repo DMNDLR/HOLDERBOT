@@ -1,0 +1,75 @@
+[
+  {
+    "photo_id": "10",
+    "photo_path": "sample_photos\\holders-photos\\10.png",
+    "timestamp": 1758920342.3703709,
+    "manual_rectangles": [
+      {
+        "x1": 102,
+        "y1": 80,
+        "x2": 174,
+        "y2": 394,
+        "type": "holder",
+        "source": "manual",
+        "confidence": 1.0
+      },
+      {
+        "x1": 91,
+        "y1": 73,
+        "x2": 196,
+        "y2": 155,
+        "type": "sign",
+        "source": "manual",
+        "confidence": 1.0
+      },
+      {
+        "x1": 99,
+        "y1": 163,
+        "x2": 184,
+        "y2": 243,
+        "type": "sign",
+        "source": "manual",
+        "confidence": 1.0
+      }
+    ],
+    "yolo_rectangles": [],
+    "total_rectangles": 3
+  },
+  {
+    "photo_id": "100",
+    "photo_path": "sample_photos\\holders-photos\\100.png",
+    "timestamp": 1758920376.6969275,
+    "manual_rectangles": [
+      {
+        "x1": 110,
+        "y1": 83,
+        "x2": 177,
+        "y2": 131,
+        "type": "sign",
+        "source": "manual",
+        "confidence": 1.0
+      },
+      {
+        "x1": 106,
+        "y1": 71,
+        "x2": 188,
+        "y2": 423,
+        "type": "holder",
+        "source": "manual",
+        "confidence": 1.0
+      }
+    ],
+    "yolo_rectangles": [
+      {
+        "x1": 147,
+        "y1": 410,
+        "x2": 160,
+        "y2": 423,
+        "type": "sign",
+        "source": "yolo",
+        "confidence": 0.3035171926021576
+      }
+    ],
+    "total_rectangles": 3
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "photo_id": "100",
+    "photo_path": "sample_photos\\holders-photos\\100.png",
+    "analysis_mode": "holders",
+    "timestamp": 1758907303.1710582,
+    "labeled_by": "manual",
+    "material": "kov",
+    "holder_type": "stĺp značky samostatný"
+  }
+]

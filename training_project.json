@@ -1,0 +1,21 @@
+{
+  "photos": [],
+  "annotations": {
+    "10": {
+      "photo_path": "C:\\Users\\adamm\\Desktop\\holders-photos\\10.png",
+      "rectangles": [],
+      "holder_attributes": {
+        "material": "kov",
+        "type": "stĺp značky samostatný"
+      },
+      "sign_attributes": {
+        "code": "",
+        "text": "",
+        "direction": "v smere jazdy"
+      },
+      "last_modified": 1758911563.1022248
+    }
+  },
+  "training_progress": {},
+  "last_saved": 1758911563.1022248
+}

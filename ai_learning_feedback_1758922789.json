@@ -1,0 +1,39 @@
+{
+  "timestamp": 1758922789.6888735,
+  "photo_id": "photo_4",
+  "feedback": "positive",
+  "detections": [
+    {
+      "x1": 98,
+      "y1": 44,
+      "x2": 125,
+      "y2": 440,
+      "type": "holder",
+      "confidence": 0.99
+    },
+    {
+      "x1": 76,
+      "y1": 40,
+      "x2": 145,
+      "y2": 114,
+      "type": "sign",
+      "confidence": 0.99
+    },
+    {
+      "x1": 78,
+      "y1": 120,
+      "x2": 166,
+      "y2": 198,
+      "type": "sign",
+      "confidence": 0.99
+    },
+    {
+      "x1": 77,
+      "y1": 187,
+      "x2": 157,
+      "y2": 219,
+      "type": "sign",
+      "confidence": 0.99
+    }
+  ]
+}

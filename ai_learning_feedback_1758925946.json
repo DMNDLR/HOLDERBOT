@@ -1,0 +1,15 @@
+{
+  "timestamp": 1758925946.5780752,
+  "photo_id": "photo_66",
+  "feedback": "negative",
+  "detections": [
+    {
+      "x1": 98,
+      "y1": 151,
+      "x2": 193,
+      "y2": 228,
+      "type": "sign",
+      "confidence": 0.75
+    }
+  ]
+}

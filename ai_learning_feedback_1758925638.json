@@ -1,0 +1,23 @@
+{
+  "timestamp": 1758925638.070712,
+  "photo_id": "photo_47",
+  "feedback": "positive",
+  "detections": [
+    {
+      "x1": 76,
+      "y1": 61,
+      "x2": 122,
+      "y2": 415,
+      "type": "holder",
+      "confidence": 0.99
+    },
+    {
+      "x1": 63,
+      "y1": 61,
+      "x2": 150,
+      "y2": 135,
+      "type": "sign",
+      "confidence": 0.99
+    }
+  ]
+}

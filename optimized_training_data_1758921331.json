@@ -1,0 +1,119 @@
+{
+  "version": "2.0",
+  "created": 1758921331,
+  "trainer": "optimized_manual",
+  "total_photos": 2,
+  "total_rectangles": 6,
+  "session_stats": {
+    "photos_saved": 2,
+    "rectangles_drawn": 6
+  },
+  "data_quality": "perfect_manual",
+  "description": "High-quality manual training data for Slovak traffic signs",
+  "photos": [
+    {
+      "photo_id": "10",
+      "photo_path": "sample_photos\\holders-photos\\10.png",
+      "photo_name": "10.png",
+      "timestamp": 1758921308.557599,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 125,
+          "y1": 73,
+          "x2": 157,
+          "y2": 394,
+          "width": 32,
+          "height": 321,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921308.557599
+        },
+        {
+          "id": 2,
+          "x1": 92,
+          "y1": 75,
+          "x2": 187,
+          "y2": 155,
+          "width": 95,
+          "height": 80,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921308.557599
+        },
+        {
+          "id": 3,
+          "x1": 94,
+          "y1": 160,
+          "x2": 187,
+          "y2": 228,
+          "width": 93,
+          "height": 68,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921308.557599
+        }
+      ],
+      "total_rectangles": 3,
+      "holders_count": 1,
+      "signs_count": 2,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    },
+    {
+      "photo_id": "10",
+      "photo_path": "sample_photos\\holders-photos\\10.png",
+      "photo_name": "10.png",
+      "timestamp": 1758921331.638352,
+      "rectangles": [
+        {
+          "id": 1,
+          "x1": 121,
+          "y1": 72,
+          "x2": 155,
+          "y2": 389,
+          "width": 34,
+          "height": 317,
+          "type": "holder",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921331.638352
+        },
+        {
+          "id": 2,
+          "x1": 91,
+          "y1": 74,
+          "x2": 201,
+          "y2": 154,
+          "width": 110,
+          "height": 80,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921331.638352
+        },
+        {
+          "id": 3,
+          "x1": 85,
+          "y1": 161,
+          "x2": 197,
+          "y2": 235,
+          "width": 112,
+          "height": 74,
+          "type": "sign",
+          "confidence": 1.0,
+          "source": "manual_drawing",
+          "timestamp": 1758921331.638352
+        }
+      ],
+      "total_rectangles": 3,
+      "holders_count": 1,
+      "signs_count": 2,
+      "manual_quality": true,
+      "saved_by": "optimized_trainer"
+    }
+  ]
+}

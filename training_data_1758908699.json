@@ -1,0 +1,36 @@
+[
+  {
+    "photo_id": "10",
+    "photo_path": "sample_photos\\holders-photos\\10.png",
+    "timestamp": 1758908699.7517796,
+    "labeled_by": "manual_rectangles",
+    "rectangles": [
+      {
+        "x1": 176,
+        "y1": 48,
+        "x2": 204,
+        "y2": 242,
+        "type": "holder",
+        "canvas_id": 216
+      },
+      {
+        "x1": 165,
+        "y1": 96,
+        "x2": 218,
+        "y2": 144,
+        "type": "sign",
+        "canvas_id": 286
+      },
+      {
+        "x1": 157,
+        "y1": 32,
+        "x2": 223,
+        "y2": 88,
+        "type": "sign",
+        "canvas_id": 394
+      }
+    ],
+    "image_scale": 1.20125786163522,
+    "rectangle_count": 3
+  }
+]

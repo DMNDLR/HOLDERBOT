@@ -1,0 +1,143 @@
+SLOVAK TRAFFIC SIGN AI TRAINER - CONVERSATION LOG
+===============================================
+Date: 2025-09-26
+Session: Computer Vision Detection Improvements
+
+PROBLEM IDENTIFIED:
+==================
+User showed screenshot of AI trainer creating too many overlapping rectangles that don't properly align with actual traffic signs and poles in images. The current basic computer vision detection was too aggressive and creating false positives everywhere.
+
+IMPROVEMENTS IMPLEMENTED:
+========================
+
+1. FIXED AGGRESSIVE COMPUTER VISION DETECTION
+   - Increased edge detection thresholds (from 50,150 to 80,200 for Canny)
+   - Made morphological operations more conservative (longer kernels)
+   - Added much stricter filtering criteria for poles and signs
+   - Added solidity and rectangularity checks for better shape validation
+
+2. IMPLEMENTED NON-MAXIMUM SUPPRESSION (NMS)
+   - Added overlap detection using Intersection over Union (IoU)
+   - Removes duplicate and overlapping detections automatically
+   - Keeps only the highest confidence detections
+   - Separate filtering for holders vs signs
+
+3. ADDED DETECTION LIMITS
+   - Maximum 2 poles per image (instead of unlimited)
+   - Maximum 3 rectangular signs per image
+   - Maximum 2 circular signs per image
+   - Prevents the "explosion" of false detections
+
+4. ADDED SENSITIVITY CONTROLS
+   - Conservative mode: Strictest criteria, fewest false positives
+   - Normal mode: Balanced detection
+   - Aggressive mode: More permissive, higher recall
+   - User can adjust based on photo quality/angle
+
+KEY CODE IMPROVEMENTS:
+=====================
+
+A. Enhanced Pole Detection:
+```python
+def detect_vertical_structures(self, img, sensitivity='normal'):
+    # Stronger edge detection
+    edges = cv2.Canny(img, 80, 200)  # Higher thresholds
+    
+    # More conservative morphological operations
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (1, 30))
+    
+    # Adjustable criteria based on sensitivity
+    if sensitivity == 'conservative':
+        min_h, max_h, min_aspect, min_area, max_w = 150, 300, 5, 1200, 40
+    elif sensitivity == 'aggressive':
+        min_h, max_h, min_aspect, min_area, max_w = 80, 400, 3, 500, 60
+    else:  # normal
+        min_h, max_h, min_aspect, min_area, max_w = 120, 350, 4, 800, 50
+    
+    # Check solidity for better shape validation
+    hull = cv2.convexHull(contour)
+    solidity = cv2.contourArea(contour) / cv2.contourArea(hull)
+```
+
+B. Enhanced Sign Detection:
+```python
+def detect_rectangular_regions(self, img, sensitivity='normal'):
+    # More selective edge detection
+    edges = cv2.Canny(blurred, 100, 200)  # Higher thresholds
+    
+    # More strict criteria
+    if (30 < w < 120 and 30 < h < 120 and 1000 < area < 8000 and 
+        0.5 < aspect_ratio < 2.5):
+        
+        # Check rectangularity
+        rectangularity = contour_area / rect_area
+        if rectangularity > 0.6:  # Must be reasonably rectangular
+```
+
+C. Non-Maximum Suppression:
+```python
+def filter_overlapping_detections(self, detections):
+    # Separate by type
+    holders = [r for r in detections if r.type == 'holder']
+    signs = [r for r in detections if r.type == 'sign']
+    
+    # Apply NMS to each type separately
+    filtered_holders = self.apply_nms(holders, overlap_threshold=0.3)
+    filtered_signs = self.apply_nms(signs, overlap_threshold=0.2)
+
+def apply_nms(self, rectangles, overlap_threshold=0.3):
+    # Sort by confidence (highest first)
+    sorted_rects = sorted(rectangles, key=lambda r: r.confidence, reverse=True)
+    
+    kept = []
+    for rect in sorted_rects:
+        should_keep = True
+        for kept_rect in kept:
+            overlap = self.calculate_overlap(rect, kept_rect)
+            if overlap > overlap_threshold:
+                should_keep = False
+                break
+        if should_keep:
+            kept.append(rect)
+```
+
+D. Sensitivity UI Controls:
+```python
+# Added to GUI
+sensitivity_frame = tk.Frame(left_buttons, bg='#2d2d2d')
+self.sensitivity_var = tk.StringVar(value='normal')
+
+sens_conservative = tk.Radiobutton(sensitivity_frame, text="🔒 Conservative", 
+                                  variable=self.sensitivity_var, value='conservative')
+sens_normal = tk.Radiobutton(sensitivity_frame, text="⚖️ Normal", 
+                            variable=self.sensitivity_var, value='normal')
+sens_aggressive = tk.Radiobutton(sensitivity_frame, text="🔍 Aggressive", 
+                                variable=self.sensitivity_var, value='aggressive')
+```
+
+RESULTS EXPECTED:
+================
+- Much fewer false positive detections
+- No more overlapping rectangles covering the same object
+- Better alignment with actual traffic signs and poles
+- User control over detection sensitivity
+- Cleaner, more usable auto-detection results
+- Less manual correction needed
+
+TECHNICAL DETAILS:
+=================
+- Uses OpenCV computer vision instead of just pattern matching
+- Implements proper Non-Maximum Suppression algorithm
+- Calculates Intersection over Union (IoU) for overlap detection
+- Applies morphological operations for better shape detection
+- Uses contour analysis with solidity and rectangularity metrics
+- Separates detection pipeline by object type (holders vs signs)
+
+NEXT STEPS RECOMMENDED:
+======================
+1. Test the improved detection on various photos
+2. Fine-tune sensitivity parameters based on your specific dataset
+3. Consider adding more advanced deep learning detection if needed
+4. Collect feedback on detection quality improvements
+
+This conversation focused on solving the core problem of too many false positive detections by implementing proper computer vision filtering techniques and giving users control over detection sensitivity.
