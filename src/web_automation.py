@@ -11,10 +11,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.edge.service import Service as EdgeService
+from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from loguru import logger
 
 from config.config import Config
@@ -33,29 +36,85 @@ class GISWebAutomation:
         logger.info("GIS Web Automation Bot initialized")
     
     def setup_browser(self) -> bool:
-        """Initialize and configure the browser"""
+        """Initialize and configure the browser with fallback support"""
+        # Try Chrome first, then Edge if Chrome fails
+        browsers_to_try = ['chrome', 'edge']
+        
+        for browser_type in browsers_to_try:
+            try:
+                logger.info(f"Attempting to setup {browser_type.upper()} browser...")
+                
+                if browser_type == 'chrome':
+                    success = self._setup_chrome()
+                else:
+                    success = self._setup_edge()
+                
+                if success:
+                    logger.info(f"{browser_type.upper()} browser setup completed successfully")
+                    return True
+                    
+            except Exception as e:
+                logger.warning(f"{browser_type.upper()} setup failed: {str(e)}")
+                continue
+        
+        logger.error("Failed to setup any browser (Chrome or Edge)")
+        return False
+    
+    def _setup_chrome(self) -> bool:
+        """Setup Chrome browser"""
+        chrome_options = ChromeOptions()
+        
+        if Config.HEADLESS_MODE:
+            chrome_options.add_argument("--headless")
+            logger.info("Running Chrome in headless mode")
+        
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument("--disable-gpu")
+        chrome_options.add_argument("--window-size=1920,1080")
+        chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+        chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        chrome_options.add_experimental_option('useAutomationExtension', False)
+        
+        # Try with ChromeDriverManager first, then system Chrome
         try:
-            logger.info("Setting up browser...")
-            
-            # Setup Chrome options
-            chrome_options = Options()
-            
-            if Config.HEADLESS_MODE:
-                chrome_options.add_argument("--headless")
-                logger.info("Running in headless mode")
-            
-            chrome_options.add_argument("--no-sandbox")
-            chrome_options.add_argument("--disable-dev-shm-usage")
-            chrome_options.add_argument("--disable-gpu")
-            chrome_options.add_argument("--window-size=1920,1080")
-            chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-            chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
-            chrome_options.add_experimental_option('useAutomationExtension', False)
-            
-            # Setup webdriver
-            service = Service(ChromeDriverManager().install())
+            service = ChromeService(ChromeDriverManager().install())
             self.driver = webdriver.Chrome(service=service, options=chrome_options)
-            
+        except:
+            # Try without explicit service (system Chrome driver)
+            self.driver = webdriver.Chrome(options=chrome_options)
+        
+        return self._configure_driver()
+    
+    def _setup_edge(self) -> bool:
+        """Setup Edge browser"""
+        edge_options = EdgeOptions()
+        
+        if Config.HEADLESS_MODE:
+            edge_options.add_argument("--headless")
+            logger.info("Running Edge in headless mode")
+        
+        edge_options.add_argument("--no-sandbox")
+        edge_options.add_argument("--disable-dev-shm-usage")
+        edge_options.add_argument("--disable-gpu")
+        edge_options.add_argument("--window-size=1920,1080")
+        edge_options.add_argument("--disable-blink-features=AutomationControlled")
+        edge_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        edge_options.add_experimental_option('useAutomationExtension', False)
+        
+        # Try with EdgeDriverManager first, then system Edge
+        try:
+            service = EdgeService(EdgeChromiumDriverManager().install())
+            self.driver = webdriver.Edge(service=service, options=edge_options)
+        except:
+            # Try without explicit service (system Edge driver)
+            self.driver = webdriver.Edge(options=edge_options)
+        
+        return self._configure_driver()
+    
+    def _configure_driver(self) -> bool:
+        """Configure the driver after initialization"""
+        try:
             # Configure implicit wait and maximize window
             self.driver.implicitly_wait(Config.IMPLICIT_WAIT)
             self.driver.maximize_window()
@@ -66,17 +125,15 @@ class GISWebAutomation:
             # Execute script to remove webdriver property
             self.driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
             
-            logger.info("Browser setup completed successfully")
             return True
-            
         except Exception as e:
-            logger.error(f"Failed to setup browser: {str(e)}")
+            logger.error(f"Driver configuration failed: {str(e)}")
             return False
     
     def login_to_wordpress(self) -> bool:
-        """Login to WordPress admin panel"""
+        """Login to SmartMap system (custom login, not WordPress)"""
         try:
-            logger.info("Attempting to login to WordPress...")
+            logger.info("Attempting to login to SmartMap...")
             
             if not self.driver:
                 logger.error("Browser not initialized")
@@ -86,43 +143,100 @@ class GISWebAutomation:
             self.driver.get(Config.LOGIN_URL)
             logger.info(f"Navigating to login page: {Config.LOGIN_URL}")
             
-            # Wait for login form to load
-            username_field = self.wait.until(
-                EC.presence_of_element_located((By.ID, "user_login"))
-            )
+            # Wait a moment for page to load and redirect
+            time.sleep(3)
             
-            password_field = self.driver.find_element(By.ID, "user_pass")
-            login_button = self.driver.find_element(By.ID, "wp-submit")
+            # SmartMap uses custom login form with specific IDs
+            try:
+                # Try SmartMap custom login first
+                logger.info("Looking for SmartMap login form...")
+                
+                # Wait for email field (SmartMap uses input-0)
+                email_field = self.wait.until(
+                    EC.presence_of_element_located((By.ID, "input-0"))
+                )
+                
+                # Find password field (SmartMap uses input-2)
+                password_field = self.driver.find_element(By.ID, "input-2")
+                
+                logger.info("Found SmartMap login fields")
+                
+            except TimeoutException:
+                # Fallback to standard WordPress login
+                logger.info("SmartMap fields not found, trying WordPress login...")
+                
+                email_field = self.wait.until(
+                    EC.presence_of_element_located((By.ID, "user_login"))
+                )
+                password_field = self.driver.find_element(By.ID, "user_pass")
             
             # Enter credentials
-            username_field.clear()
-            username_field.send_keys(Config.USERNAME)
+            email_field.clear()
+            email_field.send_keys(Config.USERNAME)
             
             password_field.clear()
             password_field.send_keys(Config.PASSWORD)
             
             logger.info("Credentials entered, submitting login form...")
             
-            # Submit login form
-            login_button.click()
+            # Find and click submit button
+            submit_button = None
+            submit_selectors = [
+                "//button[@type='submit']",
+                "//input[@type='submit']",
+                "//button[contains(text(), 'Prihlásiť')]",  # Slovak for "Login"
+                "//button[contains(text(), 'Login')]",
+                "//button[contains(text(), 'Submit')]",
+                "#wp-submit"
+            ]
+            
+            for selector in submit_selectors:
+                try:
+                    submit_button = self.driver.find_element(By.XPATH, selector)
+                    if submit_button.is_displayed() and submit_button.is_enabled():
+                        break
+                except:
+                    continue
+            
+            if submit_button:
+                submit_button.click()
+            else:
+                # Try submitting the form directly
+                logger.info("No submit button found, trying form submission...")
+                password_field.send_keys(Keys.RETURN)
             
             # Wait for login to complete
-            time.sleep(3)
+            time.sleep(5)
             
             # Check if login was successful
-            if "wp-admin" in self.driver.current_url or "dashboard" in self.driver.current_url:
-                logger.info("WordPress login successful")
+            current_url = self.driver.current_url
+            
+            # SmartMap success indicators
+            success_indicators = [
+                "dashboard" in current_url.lower(),
+                "admin" in current_url.lower(),
+                "devadmin" in current_url.lower(),
+                "wp-admin" in current_url.lower(),
+                current_url != Config.LOGIN_URL and "login" not in current_url.lower()
+            ]
+            
+            if any(success_indicators):
+                logger.info(f"SmartMap login successful - redirected to: {current_url}")
                 self.is_logged_in = True
                 return True
             else:
-                logger.error("WordPress login failed - redirected to wrong page")
+                logger.error(f"Login may have failed - still at: {current_url}")
+                # Take a screenshot for debugging
+                self.take_screenshot("login_failed.png")
                 return False
                 
         except TimeoutException:
             logger.error("Timeout waiting for login page elements")
+            self.take_screenshot("login_timeout.png")
             return False
         except Exception as e:
             logger.error(f"Login failed: {str(e)}")
+            self.take_screenshot("login_error.png")
             return False
     
     def navigate_to_gis_admin(self) -> bool:

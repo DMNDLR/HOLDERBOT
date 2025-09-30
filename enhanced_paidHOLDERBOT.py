@@ -1,20 +1,22 @@
 #!/usr/bin/env python3
 """
-💳 PAID HOLDER BOT - GPT-4 VISION REAL-TIME ANALYSIS
-==================================================
-Premium SmartMap automation with real-time photo analysis
+💳 ENHANCED PAID HOLDER BOT - WITH LIVE BALANCE MONITORING
+========================================================
+Premium SmartMap automation with real-time photo analysis + live balance tracking
 
-Features:
+NEW FEATURES:
+- 🔋 Live OpenAI balance monitoring window
+- ⚠️ Automatic low balance alerts  
+- ⏸️ Auto-pause when balance too low
+- 📊 Real-time cost tracking
+- 💰 Session cost reporting
+
+Original Features:
 - Real-time GPT-4 Vision analysis (~$0.01 per photo)
 - 95.7% accuracy guaranteed
-- Scans all pages for empty holders
 - Fills Material and Type dropdowns
 - Adds "DMNB" tracking to poznámka
 - Fast processing (~20 seconds per holder)
-- Complete automation with error handling
-
-Cost: ~$0.01 per analyzed photo
-Accuracy: 95.7% (proven results)
 """
 
 import json
@@ -22,7 +24,8 @@ import time
 import base64
 import io
 import threading
-from datetime import datetime
+import tkinter as tk
+from tkinter import messagebox
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait, Select
@@ -36,7 +39,10 @@ from PIL import Image
 import requests
 from loguru import logger
 
-class PaidHolderBot:
+# Import our balance monitor
+from openai_balance_monitor import OpenAIBalanceMonitor
+
+class EnhancedPaidHolderBot:
     def __init__(self):
         load_dotenv()
         self.setup_logging()
@@ -45,29 +51,46 @@ class PaidHolderBot:
         self.processed_holders = []
         self.current_page = 1
         self.total_cost = 0.0
-        self.current_balance = 0.0
-        self.initial_balance = 0.0
         self.processing_paused = False
         
-        # Get initial balance
-        self.update_balance_info()
+        # Initialize balance monitor
+        self.balance_monitor = None
+        self.setup_balance_monitor()
         
     def setup_logging(self):
         """Setup detailed logging"""
-        logger.add("paid_holder_bot.log", rotation="1 day", retention="30 days")
-        logger.info("💳 Paid Holder Bot initialized")
+        logger.add("enhanced_paid_holder_bot.log", rotation="1 day", retention="30 days")
+        logger.info("💳 Enhanced Paid Holder Bot initialized")
         
     def setup_openai(self):
         """Setup OpenAI client for real-time analysis"""
         api_key = os.getenv('OPENAI_API_KEY')
         if not api_key or api_key == 'your_openai_key_here':
             logger.error("❌ OpenAI API key not configured!")
-            raise ValueError("OpenAI API key required for Paid Holder Bot")
+            raise ValueError("OpenAI API key required for Enhanced Paid Holder Bot")
         
         self.openai_client = openai.OpenAI(api_key=api_key)
         self.api_key = api_key
         logger.info("🔑 OpenAI client initialized for real-time analysis")
         
+    def setup_balance_monitor(self):
+        """Setup the live balance monitoring window"""
+        try:
+            # Start balance monitor in separate thread
+            def start_monitor():
+                self.balance_monitor = OpenAIBalanceMonitor(self.api_key)
+                # Don't start the GUI loop here - we'll run it separately
+                
+            monitor_thread = threading.Thread(target=start_monitor, daemon=True)
+            monitor_thread.start()
+            monitor_thread.join(timeout=2)  # Wait for initialization
+            
+            logger.info("🔋 Balance monitor initialized")
+            
+        except Exception as e:
+            logger.warning(f"⚠️ Could not initialize balance monitor: {str(e)}")
+            self.balance_monitor = None
+    
     def setup_browser(self):
         """Setup Chrome browser"""
         chrome_options = Options()
@@ -79,96 +102,65 @@ class PaidHolderBot:
         self.wait = WebDriverWait(self.driver, 15)
         logger.info("🌐 Browser initialized")
         
-    def get_openai_balance(self):
-        """Fetch current OpenAI account balance"""
+    def check_balance_before_processing(self):
+        """Check if we have sufficient balance before processing"""
+        if not self.balance_monitor:
+            return True  # Continue if monitor not available
+            
         try:
-            headers = {
-                'Authorization': f'Bearer {self.api_key}',
-                'Content-Type': 'application/json'
-            }
-            
-            # Get account information
-            response = requests.get('https://api.openai.com/v1/dashboard/billing/subscription', 
-                                  headers=headers, timeout=10)
-            
-            if response.status_code == 200:
-                data = response.json()
+            balance_info = self.balance_monitor.get_openai_balance()
+            if balance_info and balance_info['balance'] < 1.0:
                 
-                # Get usage for current month
-                today = datetime.now()
-                start_date = today.replace(day=1).strftime('%Y-%m-%d')
-                end_date = today.strftime('%Y-%m-%d')
+                # Show warning dialog
+                root = tk.Tk()
+                root.withdraw()  # Hide the main window
                 
-                usage_response = requests.get(
-                    f'https://api.openai.com/v1/dashboard/billing/usage?start_date={start_date}&end_date={end_date}',
-                    headers=headers, timeout=10
+                result = messagebox.askyesno(
+                    "⚠️ Low Balance Warning",
+                    f"Your OpenAI balance is low: ${balance_info['balance']:.2f}\\n\\n"
+                    f"Processing may be interrupted if balance runs out.\\n"
+                    f"Continue anyway?",
+                    icon='warning'
                 )
                 
-                if usage_response.status_code == 200:
-                    usage_data = usage_response.json()
-                    total_usage = usage_data.get('total_usage', 0) / 100  # Convert from cents
-                    
-                    # Calculate remaining balance
-                    if 'hard_limit_usd' in data:
-                        limit = data['hard_limit_usd']
-                        remaining = max(0, limit - total_usage)
-                        
-                        return {
-                            'balance': remaining,
-                            'limit': limit,
-                            'used': total_usage,
-                            'status': 'active' if remaining > 0 else 'exceeded'
-                        }
+                root.destroy()
                 
-            return None
-            
+                if not result:
+                    logger.warning("Processing cancelled due to low balance")
+                    return False
+                    
         except Exception as e:
-            logger.error(f"Failed to fetch OpenAI balance: {str(e)}")
-            return None
-    
-    def update_balance_info(self):
-        """Update balance information"""
-        try:
-            balance_info = self.get_openai_balance()
-            if balance_info:
-                self.current_balance = balance_info['balance']
-                if self.initial_balance == 0.0:
-                    self.initial_balance = self.current_balance
-                logger.info(f"💰 Balance updated: ${self.current_balance:.2f}")
-            else:
-                logger.warning("⚠️ Could not fetch balance")
-        except Exception as e:
-            logger.error(f"Balance update failed: {str(e)}")
-    
-    def display_balance_status(self):
-        """Display current balance status in console"""
-        try:
-            balance_color = "\033[92m"  # Green
-            if self.current_balance < 10:
-                balance_color = "\033[93m"  # Yellow
-            if self.current_balance < 2:
-                balance_color = "\033[91m"  # Red
-            reset_color = "\033[0m"
+            logger.error(f"Balance check failed: {str(e)}")
             
-            session_spent = self.initial_balance - self.current_balance + self.total_cost
-            
-            print(f"💳 PAID | 🔋 Balance: {balance_color}${self.current_balance:.2f}{reset_color} | 📊 Session: ${self.total_cost:.2f} | 💸 Spent: ${session_spent:.2f}")
-        except:
-            print(f"💳 PAID | 🔋 Balance: ${self.current_balance:.2f} | 📊 Session: ${self.total_cost:.2f}")
-    
-    def check_balance_safety(self):
-        """Check if balance is safe to continue"""
-        if self.current_balance < 0.50:
-            print("\n🚨 CRITICAL: Balance too low - pausing processing!")
-            print(f"🔋 Current balance: ${self.current_balance:.2f}")
-            print("💡 Please add funds to your OpenAI account")
-            self.processing_paused = True
-            return False
-        elif self.current_balance < 2.0:
-            print(f"\n⚠️ WARNING: Low balance - ${self.current_balance:.2f} remaining")
-            return True
         return True
+    
+    def update_balance_monitor(self, cost_incurred):
+        """Update balance monitor with new cost"""
+        if self.balance_monitor:
+            try:
+                self.balance_monitor.add_cost(cost_incurred)
+                
+                # Check if balance is critically low
+                if hasattr(self.balance_monitor, 'last_balance') and self.balance_monitor.last_balance < 0.50:
+                    self.processing_paused = True
+                    logger.warning("🚨 Processing paused - critically low balance!")
+                    
+                    # Show critical balance dialog
+                    root = tk.Tk()
+                    root.withdraw()
+                    messagebox.showwarning(
+                        "🚨 Critical Balance Warning", 
+                        f"Balance critically low: ${self.balance_monitor.last_balance:.2f}\\n"
+                        "Processing automatically paused!\\n\\n"
+                        "Please add funds to your OpenAI account."
+                    )
+                    root.destroy()
+                    
+            except Exception as e:
+                logger.error(f"Failed to update balance monitor: {str(e)}")
         
+        self.total_cost += cost_incurred
+    
     def login_to_smartmap(self):
         """Login to SmartMap admin"""
         try:
@@ -230,7 +222,7 @@ class PaidHolderBot:
                     edit_url = edit_link.get_attribute('href')
                     holder_id = edit_url.split('/edit/')[-1]
                     
-                    # Check if attributes are empty (adjust column indices as needed)
+                    # Check if attributes are empty
                     material_cell = cells[3].text.strip() if len(cells) > 3 else ""
                     type_cell = cells[4].text.strip() if len(cells) > 4 else ""
                     
@@ -252,7 +244,7 @@ class PaidHolderBot:
         except Exception as e:
             logger.error(f"❌ Failed to get holders from page: {str(e)}")
             return []
-            
+    
     def get_photo_url_from_holder_id(self, holder_id):
         """Generate photo URL from holder ID"""
         base_url = "https://devbackend.smartmap.sk/storage/pezinok/holders-photos"
@@ -286,8 +278,13 @@ class PaidHolderBot:
     def analyze_photo_realtime(self, holder_id):
         """Analyze holder photo in real-time using GPT-4 Vision"""
         try:
+            # Check if processing is paused
+            if self.processing_paused:
+                logger.warning(f"⏸️ Processing paused for holder {holder_id} - low balance")
+                return None
+            
             photo_url = self.get_photo_url_from_holder_id(holder_id)
-            logger.info(f"📸 Analyzing photo for holder {holder_id} (PAID)")
+            logger.info(f"📸 Analyzing photo for holder {holder_id} (PAID + MONITORED)")
             
             base64_image = self.download_and_encode_image(photo_url)
             if not base64_image:
@@ -328,9 +325,9 @@ Use Slovak terminology exactly as listed above."""
                 max_tokens=300
             )
             
-            # Track cost and update balance
-            self.total_cost += 0.01
-            self.current_balance = max(0, self.current_balance - 0.01)
+            # Update balance monitor with cost
+            cost_incurred = 0.01
+            self.update_balance_monitor(cost_incurred)
             
             result_text = response.choices[0].message.content.strip()
             
@@ -357,18 +354,16 @@ Use Slovak terminology exactly as listed above."""
         except Exception as e:
             logger.error(f"❌ GPT-4 Vision analysis failed for holder {holder_id}: {str(e)}")
             return None
-            
+    
     def fill_holder_attributes(self, holder_id, edit_url, material_empty, type_empty):
         """Fill attributes for a specific holder"""
         try:
-            # Update and display balance status
-            self.display_balance_status()
+            logger.info(f"💳 Processing holder {holder_id} with ENHANCED PAID analysis")
             
-            # Check balance safety
-            if not self.check_balance_safety():
+            # Check if processing should be paused
+            if self.processing_paused:
+                logger.warning(f"⏸️ Skipping holder {holder_id} - processing paused due to low balance")
                 return False
-            
-            logger.info(f"💳 Processing holder {holder_id} with PAID analysis")
             
             self.driver.get(edit_url)
             self.wait.until(EC.presence_of_element_located((By.TAG_NAME, "form")))
@@ -416,7 +411,7 @@ Use Slovak terminology exactly as listed above."""
         except Exception as e:
             logger.error(f"❌ Processing failed for holder {holder_id}: {str(e)}")
             return False
-            
+    
     def fill_material_dropdown(self, material):
         """Fill material dropdown"""
         try:
@@ -445,7 +440,7 @@ Use Slovak terminology exactly as listed above."""
             poznamka_field = self.driver.find_element(By.NAME, "poznamka")
             current_text = poznamka_field.get_attribute('value') or ""
             
-            dmnb_text = f"DMNB (GPT-4: {confidence:.2f})"
+            dmnb_text = f"DMNB (Enhanced GPT-4: {confidence:.2f})"
             new_text = f"{current_text}\n{dmnb_text}".strip() if current_text else dmnb_text
             
             poznamka_field.clear()
@@ -476,22 +471,28 @@ Use Slovak terminology exactly as listed above."""
             return len(next_links) > 0 and next_links[0].is_enabled()
         except:
             return False
-            
+    
+    def show_balance_monitor(self):
+        """Show the balance monitor window"""
+        if self.balance_monitor:
+            try:
+                monitor_thread = threading.Thread(target=self.balance_monitor.run, daemon=True)
+                monitor_thread.start()
+                logger.info("🔋 Balance monitor window started")
+                time.sleep(1)  # Give window time to appear
+            except Exception as e:
+                logger.error(f"Failed to show balance monitor: {str(e)}")
+                
     def process_all_pages(self):
-        """Process all pages of holders"""
+        """Process all pages of holders with live balance monitoring"""
         try:
-            # Show initial balance
-            print("\n🔋 INITIAL BALANCE CHECK:")
-            self.update_balance_info()
-            self.display_balance_status()
+            # Show balance monitor window
+            self.show_balance_monitor()
             
-            if self.current_balance < 1.0:
-                print(f"\n⚠️ WARNING: Low starting balance (${self.current_balance:.2f})")
-                response = input("Continue anyway? (y/n): ").lower().strip()
-                if response != 'y':
-                    print("⏸️ Processing cancelled due to low balance")
-                    return False
-            
+            # Check balance before starting
+            if not self.check_balance_before_processing():
+                return False
+                
             if not self.login_to_smartmap():
                 return False
                 
@@ -499,9 +500,9 @@ Use Slovak terminology exactly as listed above."""
             total_processed = 0
             
             while True:
-                # Check if processing should be paused
+                # Check if processing is paused
                 if self.processing_paused:
-                    print("\n⏸️ Processing paused due to low balance!")
+                    logger.warning("⏸️ Processing paused due to low balance")
                     break
                 
                 logger.info(f"🔄 Processing page {page_num}...")
@@ -514,13 +515,11 @@ Use Slovak terminology exactly as listed above."""
                 if not empty_holders:
                     logger.info(f"📋 No empty holders found on page {page_num}")
                 else:
-                    print(f"\n💳 PROCESSING PAGE {page_num} - {len(empty_holders)} holders found")
-                    self.display_balance_status()
-                    print("-" * 80)
+                    logger.info(f"💳 Processing {len(empty_holders)} empty holders with ENHANCED PAID analysis")
                     
                     for holder in empty_holders:
                         if self.processing_paused:
-                            print("⏸️ Processing paused due to low balance!")
+                            logger.warning("⏸️ Processing paused during holder processing")
                             break
                             
                         if self.fill_holder_attributes(
@@ -531,17 +530,10 @@ Use Slovak terminology exactly as listed above."""
                         ):
                             total_processed += 1
                             
-                        # Update balance every 3 holders
-                        if total_processed % 3 == 0:
-                            self.update_balance_info()
-                            
-                        time.sleep(0.5)
+                        time.sleep(0.5)  # Slight delay for monitoring updates
                         
                         if total_processed % 5 == 0:
-                            print(f"\n📊 PROGRESS UPDATE:")
-                            self.display_balance_status()
-                            print(f"✅ Holders processed: {total_processed}")
-                            print("-" * 80)
+                            logger.info(f"📊 Progress: {total_processed} processed - Total cost: ${self.total_cost:.2f}")
                             
                 if self.has_next_page() and not self.processing_paused:
                     page_num += 1
@@ -549,107 +541,97 @@ Use Slovak terminology exactly as listed above."""
                 else:
                     break
                     
-            # Final balance update
-            self.update_balance_info()
-            
             if self.processing_paused:
-                print(f"\n⏸️ PROCESSING PAUSED - LOW BALANCE!")
+                logger.info(f"⏸️ PROCESSING PAUSED - LOW BALANCE!")
             else:
-                print(f"\n🎉 PAID PROCESSING COMPLETE!")
+                logger.info(f"🎉 ENHANCED PROCESSING COMPLETE!")
                 
-            print("\n📊 FINAL SUMMARY:")
-            print("=" * 50)
-            self.display_balance_status()
-            print(f"✅ Holders processed: {total_processed}")
-            balance_used = self.initial_balance - self.current_balance
-            print(f"💸 Balance used: ${balance_used:.2f}")
-            print(f"🔋 Remaining balance: ${self.current_balance:.2f}")
-            
-            logger.info(f"🎉 PAID PROCESSING COMPLETE!")
             logger.info(f"📊 Total processed: {total_processed}")
             logger.info(f"💰 Total cost: ${self.total_cost:.2f}")
-            logger.info(f"🔋 Final balance: ${self.current_balance:.2f}")
             
-            self.save_processing_report()
+            self.save_processing_report(total_processed)
             return True
             
         except Exception as e:
             logger.error(f"❌ Processing failed: {str(e)}")
             return False
-            
-    def save_processing_report(self):
-        """Save processing report"""
+    
+    def save_processing_report(self, total_processed):
+        """Save enhanced processing report"""
         try:
             report = {
-                'bot_type': 'PAID_HOLDER_BOT',
-                'total_processed': len(self.processed_holders),
+                'bot_type': 'ENHANCED_PAID_HOLDER_BOT',
+                'total_processed': total_processed,
                 'total_cost': self.total_cost,
-                'accuracy_expected': '95.7%',
-                'analysis_method': 'GPT-4 Vision Real-time',
+                'balance_monitoring': True,
+                'processing_paused': self.processing_paused,
+                'accuracy': '95.7%',
+                'analysis_method': 'GPT-4 Vision + Live Balance Monitoring',
                 'timestamp': time.time(),
                 'holders': self.processed_holders
             }
             
-            with open('paid_processing_report.json', 'w', encoding='utf-8') as f:
+            with open('enhanced_paid_processing_report.json', 'w', encoding='utf-8') as f:
                 json.dump(report, f, ensure_ascii=False, indent=2)
                 
-            logger.info(f"📄 Paid processing report saved!")
+            logger.info(f"📄 Enhanced processing report saved!")
             
         except Exception as e:
             logger.error(f"❌ Failed to save report: {str(e)}")
             
     def close(self):
-        """Close browser"""
+        """Close browser and balance monitor"""
         if hasattr(self, 'driver'):
             self.driver.quit()
-        logger.info("🔚 Paid Holder Bot closed")
+            
+        if self.balance_monitor:
+            try:
+                self.balance_monitor.on_closing()
+            except:
+                pass
+                
+        logger.info("🔚 Enhanced Paid Holder Bot closed")
 
 def main():
-    print("💳 PAID HOLDER BOT - GPT-4 VISION + LIVE BALANCE")
-    print("=" * 65)
-    print("Features:")
-    print("✅ Real-time GPT-4 Vision analysis")
-    print("✅ 95.7% accuracy guaranteed")
-    print("✅ Fast processing (~20 seconds per holder)")
-    print("✅ Complete automation")
-    print("✅ DMNB tracking included")
-    print("🔋 LIVE BALANCE MONITORING in console")
-    print("⚠️ Automatic low balance protection")
+    print("💳 ENHANCED PAID HOLDER BOT - WITH LIVE BALANCE MONITORING!")
+    print("=" * 70)
+    print("🆕 NEW FEATURES:")
+    print("✅ Live OpenAI balance monitoring window")
+    print("✅ Automatic low balance alerts")  
+    print("✅ Auto-pause when balance too low")
+    print("✅ Real-time cost tracking")
+    print("✅ Session cost reporting")
     print()
-    print("Cost: ~$0.01 per photo analyzed")
-    print("Expected accuracy: 95.7%")
+    print("📊 Original Features:")
+    print("✅ Real-time GPT-4 Vision analysis (~$0.01 per photo)")
+    print("✅ 95.7% accuracy guaranteed")
+    print("✅ Fills Material and Type dropdowns")
+    print("✅ Adds 'DMNB' tracking to poznámka")
+    print("✅ Fast processing (~20 seconds per holder)")
     print()
     
-    bot = PaidHolderBot()
+    bot = EnhancedPaidHolderBot()
     
     try:
-        # Show initial balance
-        print("🔋 CHECKING INITIAL BALANCE...")
-        bot.update_balance_info()
-        bot.display_balance_status()
-        print()
-        
-        response = input("💳 Ready to start PAID processing with live balance monitoring? (y/n): ").lower().strip()
+        response = input("🚀 Ready to start ENHANCED processing with live balance monitoring? (y/n): ").lower().strip()
         
         if response == 'y':
-            print("\n🔄 Starting PAID processing with LIVE BALANCE monitoring...")
-            print("💰 Using GPT-4 Vision for real-time analysis")
-            print("🔋 Balance will be shown throughout processing")
-            print("⚠️ Auto-pause if balance gets too low")
-            print("📊 Expected 95.7% accuracy")
+            print("🔄 Starting ENHANCED processing...")
+            print("🔋 Balance monitor will appear in top-right corner")
+            print("💳 Real-time GPT-4 Vision analysis with cost tracking")
+            print("⚠️ Automatic alerts for low balance")
             print()
             
             success = bot.process_all_pages()
             
             if success:
-                print("\n🎉 PAID PROCESSING COMPLETE!")
+                print("\n🎉 ENHANCED PROCESSING COMPLETE!")
                 print("✅ Check SmartMap admin panel for results")
-                print("📋 Review logs: paid_holder_bot.log")
-                print("📄 Check report: paid_processing_report.json")
+                print("📋 Review logs: enhanced_paid_holder_bot.log")
+                print("📄 Check report: enhanced_paid_processing_report.json")
                 print(f"💰 Total cost: ${bot.total_cost:.2f}")
-                print(f"🔋 Final balance: ${bot.current_balance:.2f}")
                 if bot.processing_paused:
-                    print("⚠️ Note: Processing was paused due to low balance")
+                    print("⚠️ Processing was paused due to low balance")
             else:
                 print("\n❌ Processing encountered issues. Check the logs.")
         else:

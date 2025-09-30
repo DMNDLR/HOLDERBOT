@@ -14,7 +14,7 @@ class Config:
     # WordPress/Site Configuration
     SITE_URL = os.getenv('SITE_URL', '')
     LOGIN_URL = os.getenv('LOGIN_URL', '')
-    USERNAME = os.getenv('USERNAME', '')
+    USERNAME = os.getenv('LOGIN_USERNAME', '')
     PASSWORD = os.getenv('PASSWORD', '')
     
     # GIS Admin URLs

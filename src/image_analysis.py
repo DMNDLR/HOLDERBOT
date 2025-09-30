@@ -21,6 +21,64 @@ class TrafficSignAnalyzer:
         self.logger = logger
         self.logger.info("Traffic Sign Analyzer initialized")
         
+        # Slovak traffic sign detection prompt
+        self.slovak_prompt = """
+Your task is to analyze an image of a traffic sign carrier (nosič dopravnej značky) and extract 3 key attributes by selecting from the given Slovak dropdown values. Do not translate the Slovak words — just select the correct Slovak label from the list based on what you see.
+
+You must return exactly these three fields:
+
+1. `Vlastník` – ownership category:
+   - "mesto" (city)
+   - "obec" (village/municipality)
+   - "iný" (other)
+
+2. `Materiál` – material of the carrier:
+   - "kov" (metal)
+   - "betón" (concrete)
+   - "drevo" (wood)
+   - "plast" (plastic)
+   - "stavba, múr" (wall/building structure)
+   - "iný" (other)
+
+3. `Základný typ` – basic type of carrier (pick the most fitting from this extended Slovak list):
+   - "stĺp značky samostatný" (single sign pole)
+   - "stĺp značky dvojitý" (double sign pole)
+   - "stĺp značky trojitý"
+   - "stĺp značky štvoritý"
+   - "stĺp verejného osvetlenia" (public lighting pole)
+   - "stĺp elektrického vedenia" (electricity pole)
+   - "stĺp telekomunikačného vedenia"
+   - "stĺp svetelného signalizačného zariadenia"
+   - "dopravné zariadenie" (traffic device)
+   - "portálová konštrukcia" (portal structure)
+   - "mostná konštrukcia" (bridge structure)
+   - "zvodidlo, zábradlie" (guardrail, handrail)
+   - "Zastávka MHD" (public transport stop)
+   - "plot" (fence)
+   - "budova" (building)
+   - "brána, dvere" (gate, door)
+   - "závora" (barrier)
+   - "Stĺpik tabule označenia ulice"
+   - "Stĺpik smerových tabúľ ulíc alebo objektov"
+   - "Vodiace dosky Klemmfix"
+   - "Stojan pre dočasné dopravné značenie"
+   - "Smerovacie zariadenie Z4"
+   - "iný" (other)
+
+❗Important:
+- Output the original Slovak label, not its English meaning.
+- Use visual clues like material type, structural type, number of poles, lighting elements, surroundings (e.g. fence, building), etc.
+- Do not fill in the `ulica` (street name) field – it is determined from map data.
+
+Return a dictionary like this:
+
+{
+  "Vlastník": "mesto",
+  "Materiál": "kov",
+  "Základný typ": "stĺp značky samostatný"
+}
+"""
+        
         # Color ranges for different materials (in HSV)
         self.color_ranges = {
             'aluminum': {'lower': (0, 0, 180), 'upper': (180, 30, 255)},
@@ -307,6 +365,119 @@ class TrafficSignAnalyzer:
         except Exception as e:
             self.logger.error(f"Error validating image: {str(e)}")
             return False
+    
+    def analyze_slovak_traffic_sign(self, image_path: str) -> Dict[str, str]:
+        """Analyze traffic sign using Slovak detection criteria"""
+        try:
+            self.logger.info(f"Analyzing Slovak traffic sign: {image_path}")
+            
+            if not os.path.exists(image_path):
+                self.logger.error(f"Image file not found: {image_path}")
+                return {}
+            
+            # Load image for analysis
+            image = cv2.imread(image_path)
+            if image is None:
+                self.logger.error(f"Could not load image: {image_path}")
+                return {}
+            
+            # Analyze using computer vision methods
+            detected_material = self._detect_material_slovak(image)
+            detected_type = self._detect_type_slovak(image)
+            detected_owner = self._detect_owner_slovak(image)
+            
+            results = {
+                "Vlastník": detected_owner,
+                "Materiál": detected_material,
+                "Základný typ": detected_type
+            }
+            
+            self.logger.info(f"Slovak analysis results: {results}")
+            return results
+            
+        except Exception as e:
+            self.logger.error(f"Error analyzing Slovak traffic sign: {str(e)}")
+            return {
+                "Vlastník": "mesto",
+                "Materiál": "kov",
+                "Základný typ": "stĺp značky samostatný"
+            }
+    
+    def _detect_material_slovak(self, image: np.ndarray) -> str:
+        """Detect material and return Slovak term"""
+        try:
+            # Use existing material detection logic
+            english_material = self._detect_material(image)
+            
+            # Map English terms to Slovak terms
+            material_mapping = {
+                'aluminum': 'kov',
+                'steel': 'kov',
+                'plastic': 'plast',
+                'reflective_sheeting': 'kov',  # Usually metal with reflective coating
+                'concrete': 'betón',
+                'wood': 'drevo'
+            }
+            
+            return material_mapping.get(english_material, 'kov')  # Default to metal
+            
+        except Exception as e:
+            self.logger.error(f"Error detecting Slovak material: {str(e)}")
+            return 'kov'
+    
+    def _detect_type_slovak(self, image: np.ndarray) -> str:
+        """Detect type and return Slovak term"""
+        try:
+            # Analyze image characteristics to determine type
+            gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+            
+            # Look for lighting elements (bright spots)
+            _, thresh = cv2.threshold(gray, 200, 255, cv2.THRESH_BINARY)
+            bright_pixels = np.sum(thresh == 255) / thresh.size
+            
+            # Look for multiple signs (horizontal elements)
+            edges = cv2.Canny(gray, 50, 150)
+            lines = cv2.HoughLinesP(edges, 1, np.pi/180, 50, minLineLength=50, maxLineGap=10)
+            
+            horizontal_lines = 0
+            if lines is not None:
+                for line in lines:
+                    x1, y1, x2, y2 = line[0]
+                    angle = np.arctan2(y2 - y1, x2 - x1) * 180 / np.pi
+                    if abs(angle) < 15:  # Nearly horizontal
+                        horizontal_lines += 1
+            
+            # Detect lighting poles by bright spots
+            if bright_pixels > 0.1:
+                return 'stĺp verejného osvetlenia'
+            
+            # Detect multiple signs
+            elif horizontal_lines > 3:
+                return 'stĺp značky dvojitý'
+            
+            # Default to single sign pole
+            else:
+                return 'stĺp značky samostatný'
+                
+        except Exception as e:
+            self.logger.error(f"Error detecting Slovak type: {str(e)}")
+            return 'stĺp značky samostatný'
+    
+    def _detect_owner_slovak(self, image: np.ndarray) -> str:
+        """Detect ownership category - defaults to city (mesto)"""
+        try:
+            # For now, default to "mesto" as most signs are city-owned
+            # This could be enhanced with location-based detection
+            # or analysis of sign design/branding
+            return 'mesto'
+            
+        except Exception as e:
+            self.logger.error(f"Error detecting Slovak owner: {str(e)}")
+            return 'mesto'
+    
+    def get_slovak_prompt(self) -> str:
+        """Return the Slovak traffic sign detection prompt"""
+        return self.slovak_prompt
     
     def get_analysis_confidence(self, results: Dict[str, str]) -> Dict[str, float]:
         """Return confidence scores for analysis results"""

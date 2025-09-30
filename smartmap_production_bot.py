@@ -1,28 +1,22 @@
 #!/usr/bin/env python3
 """
-💳 PAID HOLDER BOT - GPT-4 VISION REAL-TIME ANALYSIS
-==================================================
-Premium SmartMap automation with real-time photo analysis
+🤖 SMARTMAP PRODUCTION BOT - REAL-TIME ANALYSIS
+==============================================
+Scans all holders, analyzes photos in real-time, fills empty attributes
 
 Features:
-- Real-time GPT-4 Vision analysis (~$0.01 per photo)
-- 95.7% accuracy guaranteed
 - Scans all pages for empty holders
+- Real-time photo analysis with GPT-4 Vision
 - Fills Material and Type dropdowns
 - Adds "DMNB" tracking to poznámka
-- Fast processing (~20 seconds per holder)
-- Complete automation with error handling
-
-Cost: ~$0.01 per analyzed photo
-Accuracy: 95.7% (proven results)
+- Automatic pagination through all pages
+- Error handling and progress tracking
 """
 
 import json
 import time
 import base64
 import io
-import threading
-from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait, Select
@@ -36,7 +30,7 @@ from PIL import Image
 import requests
 from loguru import logger
 
-class PaidHolderBot:
+class SmartMapProductionBot:
     def __init__(self):
         load_dotenv()
         self.setup_logging()
@@ -44,29 +38,21 @@ class PaidHolderBot:
         self.setup_browser()
         self.processed_holders = []
         self.current_page = 1
-        self.total_cost = 0.0
-        self.current_balance = 0.0
-        self.initial_balance = 0.0
-        self.processing_paused = False
-        
-        # Get initial balance
-        self.update_balance_info()
         
     def setup_logging(self):
         """Setup detailed logging"""
-        logger.add("paid_holder_bot.log", rotation="1 day", retention="30 days")
-        logger.info("💳 Paid Holder Bot initialized")
+        logger.add("smartmap_production_bot.log", rotation="1 day", retention="30 days")
+        logger.info("🤖 SmartMap Production Bot initialized")
         
     def setup_openai(self):
         """Setup OpenAI client for real-time analysis"""
         api_key = os.getenv('OPENAI_API_KEY')
         if not api_key or api_key == 'your_openai_key_here':
             logger.error("❌ OpenAI API key not configured!")
-            raise ValueError("OpenAI API key required for Paid Holder Bot")
+            raise ValueError("OpenAI API key required for real-time analysis")
         
         self.openai_client = openai.OpenAI(api_key=api_key)
-        self.api_key = api_key
-        logger.info("🔑 OpenAI client initialized for real-time analysis")
+        logger.info("🔑 OpenAI client initialized")
         
     def setup_browser(self):
         """Setup Chrome browser"""
@@ -78,96 +64,6 @@ class PaidHolderBot:
         self.driver = webdriver.Chrome(options=chrome_options)
         self.wait = WebDriverWait(self.driver, 15)
         logger.info("🌐 Browser initialized")
-        
-    def get_openai_balance(self):
-        """Fetch current OpenAI account balance"""
-        try:
-            headers = {
-                'Authorization': f'Bearer {self.api_key}',
-                'Content-Type': 'application/json'
-            }
-            
-            # Get account information
-            response = requests.get('https://api.openai.com/v1/dashboard/billing/subscription', 
-                                  headers=headers, timeout=10)
-            
-            if response.status_code == 200:
-                data = response.json()
-                
-                # Get usage for current month
-                today = datetime.now()
-                start_date = today.replace(day=1).strftime('%Y-%m-%d')
-                end_date = today.strftime('%Y-%m-%d')
-                
-                usage_response = requests.get(
-                    f'https://api.openai.com/v1/dashboard/billing/usage?start_date={start_date}&end_date={end_date}',
-                    headers=headers, timeout=10
-                )
-                
-                if usage_response.status_code == 200:
-                    usage_data = usage_response.json()
-                    total_usage = usage_data.get('total_usage', 0) / 100  # Convert from cents
-                    
-                    # Calculate remaining balance
-                    if 'hard_limit_usd' in data:
-                        limit = data['hard_limit_usd']
-                        remaining = max(0, limit - total_usage)
-                        
-                        return {
-                            'balance': remaining,
-                            'limit': limit,
-                            'used': total_usage,
-                            'status': 'active' if remaining > 0 else 'exceeded'
-                        }
-                
-            return None
-            
-        except Exception as e:
-            logger.error(f"Failed to fetch OpenAI balance: {str(e)}")
-            return None
-    
-    def update_balance_info(self):
-        """Update balance information"""
-        try:
-            balance_info = self.get_openai_balance()
-            if balance_info:
-                self.current_balance = balance_info['balance']
-                if self.initial_balance == 0.0:
-                    self.initial_balance = self.current_balance
-                logger.info(f"💰 Balance updated: ${self.current_balance:.2f}")
-            else:
-                logger.warning("⚠️ Could not fetch balance")
-        except Exception as e:
-            logger.error(f"Balance update failed: {str(e)}")
-    
-    def display_balance_status(self):
-        """Display current balance status in console"""
-        try:
-            balance_color = "\033[92m"  # Green
-            if self.current_balance < 10:
-                balance_color = "\033[93m"  # Yellow
-            if self.current_balance < 2:
-                balance_color = "\033[91m"  # Red
-            reset_color = "\033[0m"
-            
-            session_spent = self.initial_balance - self.current_balance + self.total_cost
-            
-            print(f"💳 PAID | 🔋 Balance: {balance_color}${self.current_balance:.2f}{reset_color} | 📊 Session: ${self.total_cost:.2f} | 💸 Spent: ${session_spent:.2f}")
-        except:
-            print(f"💳 PAID | 🔋 Balance: ${self.current_balance:.2f} | 📊 Session: ${self.total_cost:.2f}")
-    
-    def check_balance_safety(self):
-        """Check if balance is safe to continue"""
-        if self.current_balance < 0.50:
-            print("\n🚨 CRITICAL: Balance too low - pausing processing!")
-            print(f"🔋 Current balance: ${self.current_balance:.2f}")
-            print("💡 Please add funds to your OpenAI account")
-            self.processing_paused = True
-            return False
-        elif self.current_balance < 2.0:
-            print(f"\n⚠️ WARNING: Low balance - ${self.current_balance:.2f} remaining")
-            return True
-        return True
         
     def login_to_smartmap(self):
         """Login to SmartMap admin"""
@@ -218,32 +114,38 @@ class PaidHolderBot:
         """Get all holder information from current page"""
         holders = []
         try:
+            # Find the table rows
             table_rows = self.driver.find_elements(By.XPATH, "//table[contains(@class, 'wp-list-table')]//tbody//tr")
             
             for row in table_rows:
                 try:
+                    # Extract holder data from row
                     cells = row.find_elements(By.TAG_NAME, "td")
-                    if len(cells) < 4:
+                    if len(cells) < 4:  # Skip header or empty rows
                         continue
                     
+                    # Get holder ID and edit URL
                     edit_link = row.find_element(By.XPATH, ".//a[contains(@href, '/holders/edit/')]")
                     edit_url = edit_link.get_attribute('href')
                     holder_id = edit_url.split('/edit/')[-1]
                     
                     # Check if attributes are empty (adjust column indices as needed)
-                    material_cell = cells[3].text.strip() if len(cells) > 3 else ""
-                    type_cell = cells[4].text.strip() if len(cells) > 4 else ""
+                    material_cell = cells[3].text.strip() if len(cells) > 3 else ""  # Adjust index
+                    type_cell = cells[4].text.strip() if len(cells) > 4 else ""      # Adjust index
                     
+                    # Only process holders with empty attributes
                     if not material_cell or not type_cell:
                         holders.append({
                             'holder_id': holder_id,
                             'edit_url': edit_url,
                             'material_empty': not material_cell,
-                            'type_empty': not type_cell
+                            'type_empty': not type_cell,
+                            'row_element': row
                         })
-                        logger.info(f"📋 Found empty holder: {holder_id}")
+                        logger.info(f"📋 Found empty holder: {holder_id} (material: {bool(material_cell)}, type: {bool(type_cell)})")
                         
                 except Exception as e:
+                    logger.warning(f"⚠️ Error processing table row: {str(e)}")
                     continue
                     
             logger.info(f"📊 Found {len(holders)} holders with empty attributes on page {self.current_page}")
@@ -255,6 +157,7 @@ class PaidHolderBot:
             
     def get_photo_url_from_holder_id(self, holder_id):
         """Generate photo URL from holder ID"""
+        # Based on the pattern from your data
         base_url = "https://devbackend.smartmap.sk/storage/pezinok/holders-photos"
         photo_url = f"{base_url}/{holder_id}.png"
         return photo_url
@@ -265,14 +168,18 @@ class PaidHolderBot:
             response = requests.get(photo_url, timeout=10)
             response.raise_for_status()
             
+            # Process image
             image = Image.open(io.BytesIO(response.content))
             
+            # Resize if too large
             if image.width > 1024 or image.height > 1024:
                 image.thumbnail((1024, 1024), Image.Resampling.LANCZOS)
             
+            # Convert to RGB if needed
             if image.mode != 'RGB':
                 image = image.convert('RGB')
             
+            # Convert to base64
             buffered = io.BytesIO()
             image.save(buffered, format="JPEG", quality=85)
             img_str = base64.b64encode(buffered.getvalue()).decode()
@@ -287,12 +194,14 @@ class PaidHolderBot:
         """Analyze holder photo in real-time using GPT-4 Vision"""
         try:
             photo_url = self.get_photo_url_from_holder_id(holder_id)
-            logger.info(f"📸 Analyzing photo for holder {holder_id} (PAID)")
+            logger.info(f"📸 Analyzing photo for holder {holder_id}: {photo_url}")
             
+            # Download and encode image
             base64_image = self.download_and_encode_image(photo_url)
             if not base64_image:
                 return None
                 
+            # Analyze with GPT-4 Vision
             response = self.openai_client.chat.completions.create(
                 model="gpt-4o",
                 messages=[
@@ -328,12 +237,9 @@ Use Slovak terminology exactly as listed above."""
                 max_tokens=300
             )
             
-            # Track cost and update balance
-            self.total_cost += 0.01
-            self.current_balance = max(0, self.current_balance - 0.01)
-            
             result_text = response.choices[0].message.content.strip()
             
+            # Parse JSON response
             try:
                 start = result_text.find('{')
                 end = result_text.rfind('}') + 1
@@ -341,12 +247,13 @@ Use Slovak terminology exactly as listed above."""
                     json_str = result_text[start:end]
                     result = json.loads(json_str)
                     
-                    logger.info(f"🎯 GPT-4 Vision result for holder {holder_id}: {result.get('material')} | {result.get('type')} (conf: {result.get('confidence', 0):.2f})")
+                    logger.info(f"🎯 Analysis result for holder {holder_id}: {result.get('material')} | {result.get('type')} (conf: {result.get('confidence', 0):.2f})")
                     return result
             except:
                 pass
                 
-            # Fallback
+            # Fallback if JSON parsing fails
+            logger.warning(f"⚠️ JSON parsing failed for holder {holder_id}")
             return {
                 "material": "kov",
                 "type": "stĺp značky samostatný",
@@ -355,24 +262,19 @@ Use Slovak terminology exactly as listed above."""
             }
             
         except Exception as e:
-            logger.error(f"❌ GPT-4 Vision analysis failed for holder {holder_id}: {str(e)}")
+            logger.error(f"❌ Real-time analysis failed for holder {holder_id}: {str(e)}")
             return None
             
     def fill_holder_attributes(self, holder_id, edit_url, material_empty, type_empty):
         """Fill attributes for a specific holder"""
         try:
-            # Update and display balance status
-            self.display_balance_status()
+            logger.info(f"🔧 Processing holder {holder_id}")
             
-            # Check balance safety
-            if not self.check_balance_safety():
-                return False
-            
-            logger.info(f"💳 Processing holder {holder_id} with PAID analysis")
-            
+            # Navigate to edit page
             self.driver.get(edit_url)
             self.wait.until(EC.presence_of_element_located((By.TAG_NAME, "form")))
             
+            # Analyze photo in real-time
             analysis_result = self.analyze_photo_realtime(holder_id)
             if not analysis_result:
                 logger.error(f"❌ Could not analyze photo for holder {holder_id}")
@@ -384,21 +286,29 @@ Use Slovak terminology exactly as listed above."""
             
             success = True
             
+            # Fill material dropdown if empty
             if material_empty and material:
                 if self.fill_material_dropdown(material):
                     logger.info(f"✅ Filled material: {material}")
                 else:
+                    logger.warning(f"⚠️ Failed to fill material")
                     success = False
                     
+            # Fill type dropdown if empty
             if type_empty and holder_type:
                 if self.fill_type_dropdown(holder_type):
                     logger.info(f"✅ Filled type: {holder_type}")
                 else:
+                    logger.warning(f"⚠️ Failed to fill type")
                     success = False
                     
+            # Add DMNB to poznámka
             if self.add_dmnb_to_poznamka(confidence):
                 logger.info(f"✅ Added DMNB tracking")
+            else:
+                logger.warning(f"⚠️ Failed to add DMNB tracking")
                 
+            # Save form
             if success and self.save_form():
                 logger.info(f"🎉 Successfully processed holder {holder_id}")
                 self.processed_holders.append({
@@ -406,11 +316,11 @@ Use Slovak terminology exactly as listed above."""
                     'material': material,
                     'type': holder_type,
                     'confidence': confidence,
-                    'cost': 0.01,
                     'timestamp': time.time()
                 })
                 return True
             else:
+                logger.error(f"❌ Failed to save holder {holder_id}")
                 return False
                 
         except Exception as e:
@@ -420,9 +330,10 @@ Use Slovak terminology exactly as listed above."""
     def fill_material_dropdown(self, material):
         """Fill material dropdown"""
         try:
+            # Find material dropdown (adjust selector based on actual HTML)
             material_select = Select(self.driver.find_element(By.NAME, "material"))
             material_select.select_by_visible_text(material)
-            time.sleep(0.2)
+            time.sleep(0.2)  # Reduced delay
             return True
         except Exception as e:
             logger.error(f"❌ Material dropdown fill failed: {str(e)}")
@@ -431,9 +342,10 @@ Use Slovak terminology exactly as listed above."""
     def fill_type_dropdown(self, holder_type):
         """Fill type dropdown"""
         try:
+            # Find type dropdown (adjust selector based on actual HTML)
             type_select = Select(self.driver.find_element(By.NAME, "typ"))
             type_select.select_by_visible_text(holder_type)
-            time.sleep(0.2)
+            time.sleep(0.2)  # Reduced delay
             return True
         except Exception as e:
             logger.error(f"❌ Type dropdown fill failed: {str(e)}")
@@ -442,16 +354,18 @@ Use Slovak terminology exactly as listed above."""
     def add_dmnb_to_poznamka(self, confidence):
         """Add DMNB tracking to poznámka field"""
         try:
+            # Find poznámka field
             poznamka_field = self.driver.find_element(By.NAME, "poznamka")
             current_text = poznamka_field.get_attribute('value') or ""
             
-            dmnb_text = f"DMNB (GPT-4: {confidence:.2f})"
+            # Add DMNB with confidence info
+            dmnb_text = f"DMNB (AI: {confidence:.2f})"
             new_text = f"{current_text}\n{dmnb_text}".strip() if current_text else dmnb_text
             
             poznamka_field.clear()
             poznamka_field.send_keys(new_text)
             
-            time.sleep(0.3)
+            time.sleep(0.5)
             return True
             
         except Exception as e:
@@ -461,10 +375,14 @@ Use Slovak terminology exactly as listed above."""
     def save_form(self):
         """Save the current form"""
         try:
+            # Find and click save button
             save_button = self.driver.find_element(By.XPATH, "//input[@type='submit' and contains(@value, 'Save')]")
             save_button.click()
-            time.sleep(2)
+            
+            # Wait for save confirmation or page reload
+            time.sleep(3)
             return True
+            
         except Exception as e:
             logger.error(f"❌ Form save failed: {str(e)}")
             return False
@@ -472,7 +390,8 @@ Use Slovak terminology exactly as listed above."""
     def has_next_page(self):
         """Check if there's a next page"""
         try:
-            next_links = self.driver.find_elements(By.XPATH, "//a[contains(@class, 'next-page') or contains(text(), 'Next')]")
+            # Look for next page link or pagination
+            next_links = self.driver.find_elements(By.XPATH, "//a[contains(@class, 'next-page') or contains(text(), 'Next') or contains(text(), 'Ďalší')]")
             return len(next_links) > 0 and next_links[0].is_enabled()
         except:
             return False
@@ -480,18 +399,6 @@ Use Slovak terminology exactly as listed above."""
     def process_all_pages(self):
         """Process all pages of holders"""
         try:
-            # Show initial balance
-            print("\n🔋 INITIAL BALANCE CHECK:")
-            self.update_balance_info()
-            self.display_balance_status()
-            
-            if self.current_balance < 1.0:
-                print(f"\n⚠️ WARNING: Low starting balance (${self.current_balance:.2f})")
-                response = input("Continue anyway? (y/n): ").lower().strip()
-                if response != 'y':
-                    print("⏸️ Processing cancelled due to low balance")
-                    return False
-            
             if not self.login_to_smartmap():
                 return False
                 
@@ -499,30 +406,21 @@ Use Slovak terminology exactly as listed above."""
             total_processed = 0
             
             while True:
-                # Check if processing should be paused
-                if self.processing_paused:
-                    print("\n⏸️ Processing paused due to low balance!")
-                    break
-                
                 logger.info(f"🔄 Processing page {page_num}...")
                 
                 if not self.navigate_to_holders_page(page_num):
+                    logger.error(f"❌ Failed to navigate to page {page_num}")
                     break
                     
+                # Get empty holders on current page
                 empty_holders = self.get_holders_on_current_page()
                 
                 if not empty_holders:
                     logger.info(f"📋 No empty holders found on page {page_num}")
                 else:
-                    print(f"\n💳 PROCESSING PAGE {page_num} - {len(empty_holders)} holders found")
-                    self.display_balance_status()
-                    print("-" * 80)
+                    logger.info(f"🚀 Processing {len(empty_holders)} empty holders on page {page_num}")
                     
                     for holder in empty_holders:
-                        if self.processing_paused:
-                            print("⏸️ Processing paused due to low balance!")
-                            break
-                            
                         if self.fill_holder_attributes(
                             holder['holder_id'],
                             holder['edit_url'],
@@ -531,125 +429,85 @@ Use Slovak terminology exactly as listed above."""
                         ):
                             total_processed += 1
                             
-                        # Update balance every 3 holders
-                        if total_processed % 3 == 0:
-                            self.update_balance_info()
-                            
+                        # Minimal delay between holders  
                         time.sleep(0.5)
                         
+                        # Progress update
                         if total_processed % 5 == 0:
-                            print(f"\n📊 PROGRESS UPDATE:")
-                            self.display_balance_status()
-                            print(f"✅ Holders processed: {total_processed}")
-                            print("-" * 80)
+                            logger.info(f"📊 Progress: {total_processed} holders processed so far")
                             
-                if self.has_next_page() and not self.processing_paused:
+                # Check for next page
+                if self.has_next_page():
                     page_num += 1
-                    time.sleep(1)
+                    time.sleep(1)  # Reduced delay between pages
                 else:
+                    logger.info(f"🏁 Reached last page (page {page_num})")
                     break
                     
-            # Final balance update
-            self.update_balance_info()
+            logger.info(f"🎉 PROCESSING COMPLETE! Total holders processed: {total_processed}")
             
-            if self.processing_paused:
-                print(f"\n⏸️ PROCESSING PAUSED - LOW BALANCE!")
-            else:
-                print(f"\n🎉 PAID PROCESSING COMPLETE!")
-                
-            print("\n📊 FINAL SUMMARY:")
-            print("=" * 50)
-            self.display_balance_status()
-            print(f"✅ Holders processed: {total_processed}")
-            balance_used = self.initial_balance - self.current_balance
-            print(f"💸 Balance used: ${balance_used:.2f}")
-            print(f"🔋 Remaining balance: ${self.current_balance:.2f}")
-            
-            logger.info(f"🎉 PAID PROCESSING COMPLETE!")
-            logger.info(f"📊 Total processed: {total_processed}")
-            logger.info(f"💰 Total cost: ${self.total_cost:.2f}")
-            logger.info(f"🔋 Final balance: ${self.current_balance:.2f}")
-            
+            # Save processing report
             self.save_processing_report()
+            
             return True
             
         except Exception as e:
-            logger.error(f"❌ Processing failed: {str(e)}")
+            logger.error(f"❌ Batch processing failed: {str(e)}")
             return False
             
     def save_processing_report(self):
-        """Save processing report"""
+        """Save detailed processing report"""
         try:
             report = {
-                'bot_type': 'PAID_HOLDER_BOT',
                 'total_processed': len(self.processed_holders),
-                'total_cost': self.total_cost,
-                'accuracy_expected': '95.7%',
-                'analysis_method': 'GPT-4 Vision Real-time',
                 'timestamp': time.time(),
+                'pages_processed': self.current_page,
                 'holders': self.processed_holders
             }
             
-            with open('paid_processing_report.json', 'w', encoding='utf-8') as f:
+            with open('smartmap_processing_report.json', 'w', encoding='utf-8') as f:
                 json.dump(report, f, ensure_ascii=False, indent=2)
                 
-            logger.info(f"📄 Paid processing report saved!")
+            logger.info(f"📄 Processing report saved: {len(self.processed_holders)} holders processed")
             
         except Exception as e:
             logger.error(f"❌ Failed to save report: {str(e)}")
             
     def close(self):
-        """Close browser"""
+        """Close browser and cleanup"""
         if hasattr(self, 'driver'):
             self.driver.quit()
-        logger.info("🔚 Paid Holder Bot closed")
+        logger.info("🔚 SmartMap Production Bot closed")
 
 def main():
-    print("💳 PAID HOLDER BOT - GPT-4 VISION + LIVE BALANCE")
-    print("=" * 65)
+    print("🤖 SMARTMAP PRODUCTION BOT - REAL-TIME ANALYSIS")
+    print("=" * 60)
     print("Features:")
-    print("✅ Real-time GPT-4 Vision analysis")
-    print("✅ 95.7% accuracy guaranteed")
-    print("✅ Fast processing (~20 seconds per holder)")
-    print("✅ Complete automation")
-    print("✅ DMNB tracking included")
-    print("🔋 LIVE BALANCE MONITORING in console")
-    print("⚠️ Automatic low balance protection")
-    print()
-    print("Cost: ~$0.01 per photo analyzed")
-    print("Expected accuracy: 95.7%")
+    print("✅ Scans ALL pages for empty holders")
+    print("✅ Real-time photo analysis with GPT-4 Vision")
+    print("✅ Fills Material and Type dropdowns")
+    print("✅ Adds 'DMNB' tracking to poznámka")
+    print("✅ Automatic pagination and processing")
     print()
     
-    bot = PaidHolderBot()
+    bot = SmartMapProductionBot()
     
     try:
-        # Show initial balance
-        print("🔋 CHECKING INITIAL BALANCE...")
-        bot.update_balance_info()
-        bot.display_balance_status()
-        print()
-        
-        response = input("💳 Ready to start PAID processing with live balance monitoring? (y/n): ").lower().strip()
+        response = input("🚀 Ready to start processing all holders? (y/n): ").lower().strip()
         
         if response == 'y':
-            print("\n🔄 Starting PAID processing with LIVE BALANCE monitoring...")
-            print("💰 Using GPT-4 Vision for real-time analysis")
-            print("🔋 Balance will be shown throughout processing")
-            print("⚠️ Auto-pause if balance gets too low")
-            print("📊 Expected 95.7% accuracy")
+            print("🔄 Starting production processing...")
+            print("📋 This will scan ALL pages and process empty holders")
+            print("⏱️ This may take several hours depending on the number of holders")
             print()
             
             success = bot.process_all_pages()
             
             if success:
-                print("\n🎉 PAID PROCESSING COMPLETE!")
-                print("✅ Check SmartMap admin panel for results")
-                print("📋 Review logs: paid_holder_bot.log")
-                print("📄 Check report: paid_processing_report.json")
-                print(f"💰 Total cost: ${bot.total_cost:.2f}")
-                print(f"🔋 Final balance: ${bot.current_balance:.2f}")
-                if bot.processing_paused:
-                    print("⚠️ Note: Processing was paused due to low balance")
+                print("\n🎉 PROCESSING COMPLETE!")
+                print("✅ Check the SmartMap admin panel for results")
+                print("📋 Review logs: smartmap_production_bot.log")
+                print("📄 Check report: smartmap_processing_report.json")
             else:
                 print("\n❌ Processing encountered issues. Check the logs.")
         else:
